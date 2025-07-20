@@ -15,7 +15,6 @@
       lib = nixpkgs.lib;
     in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
       snafu-nixos = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
