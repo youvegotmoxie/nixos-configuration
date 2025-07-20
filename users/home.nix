@@ -22,6 +22,7 @@
     lazygit
     nodejs
     neovim
+    obsidian
     pre-commit
     ripgrep
     starship
