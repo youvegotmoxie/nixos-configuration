@@ -15,34 +15,7 @@
     createHome   = true;
     description  = "mike";
     packages     = with pkgs; [
-      atuin
-      bat
-      bfs
-      bitwarden
-      bitwarden-cli
-      brave
-      direnv
-      delta
-      eza
-      fd
-      ghostty
-      go
-      jdk21_headless
-      jq
-      lazygit
-      nodejs
-      neovim
-      pre-commit
-      ripgrep
-      starship
-      tree
-      ugrep
-      uv
-      viddy
-      yq
-      zoxide
-      gnome-boxes
-      virt-manager
+      bash
     ];
   };
 
