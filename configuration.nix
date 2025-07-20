@@ -8,7 +8,6 @@
       ./users/mike.nix
       ./filesystems.nix
       ./desktop/gnome.nix
-      <home-manager/nixos> 
     ];
 
   # Bootloader and kernel configuration
