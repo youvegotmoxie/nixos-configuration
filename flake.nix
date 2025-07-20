@@ -20,6 +20,7 @@
         modules = [
            # Import the main module
           ./configuration.nix
+          nix-flatpak.nixosModules.nix-flatpak
         ];
         specialArgs = { inherit inputs; };
       };
