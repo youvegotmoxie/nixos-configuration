@@ -36,7 +36,7 @@
   ];
 
   home.shellAliases = {
-    g = "git"
+    g = "git";
   };
 
 }
