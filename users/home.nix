@@ -91,6 +91,10 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
+      if [[ $- != *i* ]] ; then
+              # Shell is non-interactive.  Be done now!
+              return
+      fi
       set -o vi
 
       eval "$(atuin init bash --disable-up-arrow)"
