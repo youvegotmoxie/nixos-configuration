@@ -31,7 +31,7 @@
             home-manager.users.mike.home.stateVersion = "25.05";
             home-manager.users."mike".imports = [
               nix-flatpak.homeManagerModules.nix-flatpak
-              ./users/mike-flatpak.nix
+              ../users/mike-flatpak.nix
             ];
           }
         ];
