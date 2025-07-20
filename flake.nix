@@ -24,6 +24,12 @@
           ./configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager.users.mike.home.stateVersion = "25.05";
+          }
         ];
         specialArgs = { inherit inputs; };
       };
