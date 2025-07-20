@@ -2,8 +2,6 @@
 
 {
 
-  imports = [ <home-manager/nixos> ];
-
   # Create user's main group
   users.groups.mike = {};
 
