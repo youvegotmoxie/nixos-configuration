@@ -39,4 +39,9 @@
       };
   };
 
+  programs.git = {
+    userName = "MikeB";
+    userEmail = "youvegotmoxie@gmail.com";
+  };
+
 }
