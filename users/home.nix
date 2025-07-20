@@ -85,10 +85,7 @@
       };
     };
   };
-
-  home.file."testing".text = ''
-    testing
-  '';
+  home.file.testing.text = "test";
 
   # Configure bash
   programs.bash = {
