@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-#
+
 {
   # Add config file imports
   imports =
