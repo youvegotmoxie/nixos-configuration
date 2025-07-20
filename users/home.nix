@@ -90,7 +90,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      ls = "eza";
+      ls = "random-test-string";
     };
   };
 
