@@ -29,9 +29,11 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
             home-manager.users.mike.home.stateVersion = "25.05";
+            # Use Home Manager to manage Flatpaks
             home-manager.users."mike".imports = [
               nix-flatpak.homeManagerModules.nix-flatpak
-              ./users/mike-flatpak.nix
+              # Flatpak NixOS configuration
+              ./users/flatpak.nix
             ];
           }
         ];
