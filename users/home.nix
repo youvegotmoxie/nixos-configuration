@@ -89,9 +89,22 @@
   # Configure bash
   programs.bash = {
     enable = true;
-    shellAliases = {
-      ls = "random-test-string";
-    };
+    enableCompletion = true;
+    bashrcExtra = ''
+      set -o vi
+
+      eval "$(atuin init bash --disable-up-arrow)"
+      eval "$(starship init bash)"
+      eval "$(zoxide init bash --cmd cd)"
+
+      if [ -d $HOME/.venv ]; then
+          source ~/.venv/bin/activate
+      fi
+
+      alias ll='eza -lahg --git-repos-no-status --git'
+      alias ls='eza'
+      alias cat='bat --paging=never --style=plain'
+    ''
   };
 
 }
