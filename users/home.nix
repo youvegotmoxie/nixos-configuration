@@ -86,6 +86,8 @@
     };
   };
 
+  home.file."test-file".text = "test file content";
+
   # Configure bash
   programs.bash = {
     enable = true;
