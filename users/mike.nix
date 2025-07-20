@@ -3,18 +3,18 @@
 {
 
   # Create user's main group
-  users.groups.mike = {};
+  users.groups.mike = { };
 
   # Create user
   users.users.mike = {
     isNormalUser = true;
-    group        = "mike";
-    extraGroups  = [ "wheel" "users" "qemu-libvirtd" ];
-    shell        = pkgs.bash;
-    home         = "/home/mike";
-    createHome   = true;
-    description  = "mike";
-    packages     = with pkgs; [
+    group = "mike";
+    extraGroups = [ "wheel" "users" "qemu-libvirtd" ];
+    shell = pkgs.bash;
+    home = "/home/mike";
+    createHome = true;
+    description = "mike";
+    packages = with pkgs; [
       bash
     ];
   };
@@ -42,10 +42,12 @@
       swtpm.enable = true;
       ovmf = {
         enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
       };
     };
   };
