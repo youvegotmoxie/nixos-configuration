@@ -21,7 +21,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.mike = ./home.nix;
+            home-manager.users.mike = "./users/home-manager-mike.nix";
           }
         ];
       };
