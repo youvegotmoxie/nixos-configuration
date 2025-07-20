@@ -12,8 +12,12 @@
     ./zoxide.nix
   ];
 
+  # Set home defaults
   home.username = "mike";
   home.homeDirectory = "/home/mike";
+
+  # Set EDITOR to nvim
+  programs.neovim.defaultEditor = true;
 
   # Install user packages
   home.packages = with pkgs; [
