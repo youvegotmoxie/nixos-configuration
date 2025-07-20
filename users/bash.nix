@@ -20,8 +20,7 @@
       # Enable VIM keybinds
       set -o vi
 
-      ## Setup shell programs
-
+      ## init shell programs
       # Disable as home-manager adds this #
       # eval "$(atuin init bash --disable-up-arrow)"
 
