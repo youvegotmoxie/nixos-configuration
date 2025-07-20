@@ -16,12 +16,6 @@
     description = "mike";
   };
 
-  # Install Docker
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-  };
-
   # Install and configure Steam
   programs.steam = {
     enable = true;
@@ -54,4 +48,16 @@
       };
     };
   };
+
+  # Install Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    storageDriver = "btrfs";
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
 }
