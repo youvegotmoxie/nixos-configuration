@@ -32,7 +32,6 @@
     yq
     zoxide
     gnome-boxes
-    virt-manager
   ];
 
   dconf.settings = {
@@ -40,5 +39,4 @@
       };
   };
 
-  home.file.testing.text = "test";
 }
