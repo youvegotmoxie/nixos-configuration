@@ -43,6 +43,7 @@
       yq
       zoxide
       gnome-boxes
+      virt-manager
     ];
   };
 
