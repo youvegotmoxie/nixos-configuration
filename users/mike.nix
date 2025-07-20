@@ -14,9 +14,6 @@
     home = "/home/mike";
     createHome = true;
     description = "mike";
-    packages = with pkgs; [
-      bash
-    ];
   };
 
   # Install Docker
