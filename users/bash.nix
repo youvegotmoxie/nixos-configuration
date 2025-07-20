@@ -33,6 +33,7 @@
           source ~/.venv/bin/activate
       fi
 
+      # Helper function for git add+commit+push
       git-sendit () {
         local branch="$(git branch --show-current)"
         git add .
