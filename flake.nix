@@ -13,6 +13,7 @@
       snafu-nixos = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+           # Import the main module
           ./configuration.nix
         ];
       };
