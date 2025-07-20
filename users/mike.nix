@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  imports = [ <home-manager/nixos> ];
+
   # Create user's main group
   users.groups.mike = {};
 
@@ -76,5 +79,12 @@
         }).fd];
       };
     };
+  };
+
+  home-manager.users.mike = { pkgs, ... }: {
+    home.packages = [ pkgs.httpie ];
+    programs.bash.enable = true;
+
+    home.stateVersion = "25.05";
   };
 }
