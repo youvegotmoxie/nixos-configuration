@@ -39,6 +39,4 @@
     enableBashIntegration = true;
   };
 
-  programs.zellij.enable = true;
-
 }
