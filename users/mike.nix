@@ -78,11 +78,4 @@
       };
     };
   };
-
-  home-manager.users.mike = { pkgs, ... }: {
-    home.packages = [ pkgs.httpie ];
-    programs.bash.enable = true;
-
-    home.stateVersion = "25.05";
-  };
 }
