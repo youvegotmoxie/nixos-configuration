@@ -88,7 +88,7 @@
 
   # Configure bash
   programs.bash = {
-    enable = true;
+    enable = false;
     shellAliases = {
       ls = "random-test-string";
     };
