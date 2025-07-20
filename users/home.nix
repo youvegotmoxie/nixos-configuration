@@ -39,6 +39,6 @@
     enableBashIntegration = true;
   };
 
-  programs.zoxide.options = ["--cmd cd"];
+  programs.zellij.enable = true;
 
 }
