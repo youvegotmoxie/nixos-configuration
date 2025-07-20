@@ -1,4 +1,4 @@
-{ lib, config, pkgs, home-manager, ... }:
+{ lib, config, pkgs, home-manager, ...}:
 
 {
 
@@ -49,7 +49,13 @@
 
   # Configure Gnome settings for the user
   dconf.settings = {
-    "org/gnome/calculator" = { };
+      "org/gnome/calculator" = {
+      };
+  };
+
+  programs.gnome-shell.theme = {
+    name = "Flat-Remix-Dark-fullPanel";
+    package = pkgs.flat-remix-gnome;
   };
 
 }
