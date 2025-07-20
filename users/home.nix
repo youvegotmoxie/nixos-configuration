@@ -39,4 +39,6 @@
     enableBashIntegration = true;
   };
 
+  programs.zoxide.options = ["--cmd cd"];
+
 }
