@@ -16,11 +16,12 @@
     {
     nixosConfigurations = {
       snafu-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
            # Import the main module
           ./configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = { inherit inputs; };
       };
