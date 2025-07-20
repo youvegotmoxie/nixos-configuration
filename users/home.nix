@@ -2,6 +2,9 @@
 
 {
 
+  home.username = "mike";
+  home.homeDirectory = "/home/mike";
+
   # Install user packages
   home.packages = with pkgs; [
     ansible
