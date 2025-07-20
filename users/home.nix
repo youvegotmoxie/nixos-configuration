@@ -2,6 +2,7 @@
 
 {
 
+  # Install user packages
   home.packages = with pkgs; [
     ansible
     ansible-lint
@@ -34,11 +35,13 @@
     gnome-boxes
   ];
 
+  # Configure Gnome settings for the user
   dconf.settings = {
       "org/gnome/calculator" = {
       };
   };
 
+  # Configure Git for the user
   programs.git = {
     enable = true;
     userName = "MikeB";
@@ -80,6 +83,14 @@
           required = true;
         };
       };
+    };
+  };
+
+  # Configure bash
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      ls = "eza";
     };
   };
 
