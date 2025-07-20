@@ -30,7 +30,7 @@
 
       # Add SSH key to ssh-agent
       eval "$(ssh-agent -s)"
-      ss-add /home/mike/.ssh/id_rsa
+      ssh-add /home/mike/.ssh/id_rsa
 
       # Helper function for git add+commit+push
       git-sendit () {
