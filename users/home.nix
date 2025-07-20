@@ -40,8 +40,16 @@
   };
 
   programs.git = {
+    enable = true;
     userName = "MikeB";
     userEmail = "youvegotmoxie@gmail.com";
+    signing.key = "~/.ssh/id_rsa.pub";
+    extraConfig = {
+      core = {
+        pager = "delta --pager=never --max-line-length=0";
+        editor = "nvim";
+      };
+    };
   };
 
 }
