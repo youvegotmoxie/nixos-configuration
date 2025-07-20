@@ -71,9 +71,9 @@
     wget
   ];
 
-  # Install and configure Flatpak
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
+  ## Install and configure Flatpak
+  #services.flatpak.enable = true;
+  #xdg.portal.enable = true;
 
   # Install and enable GDM (login manager)
   services.displayManager.gdm.enable = true;
