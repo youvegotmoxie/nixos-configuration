@@ -16,6 +16,9 @@
   home.username = "mike";
   home.homeDirectory = "/home/mike";
 
+  # Let home-manager manage itself
+  programs.home-manager.enable = true;
+
   # Set EDITOR to nvim
   programs.neovim = {
     enable = true;
