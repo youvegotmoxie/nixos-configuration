@@ -35,4 +35,8 @@
     virt-manager
   ];
 
+  home.shellAliases = {
+    g = "git"
+  };
+
 }
