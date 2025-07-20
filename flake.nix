@@ -34,6 +34,7 @@
               nix-flatpak.homeManagerModules.nix-flatpak
               # Flatpak NixOS configuration
               ./users/flatpak.nix
+              ./users/home.nix
             ];
           }
         ];
