@@ -9,7 +9,7 @@
   users.users.mike = {
     isNormalUser = true;
     group = "mike";
-    extraGroups = [ "wheel" "users" "qemu-libvirtd" ];
+    extraGroups = [ "wheel" "users" "qemu-libvirtd" "docker" ];
     shell = pkgs.bash;
     home = "/home/mike";
     createHome = true;
@@ -17,6 +17,12 @@
     packages = with pkgs; [
       bash
     ];
+  };
+
+  # Install Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
   };
 
   # Install and configure Steam
