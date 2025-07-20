@@ -18,7 +18,7 @@
 
   # Configure home-manager
   programs.home-manager.enable = true;
-  services.home-manager.autoExpire = true;
+  services.home-manager.autoExpire.enable = true;
 
   # Set EDITOR to nvim
   programs.neovim = {
