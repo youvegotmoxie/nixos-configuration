@@ -104,7 +104,7 @@
       alias ll='eza -lahg --git-repos-no-status --git'
       alias ls='eza'
       alias cat='bat --paging=never --style=plain'
-    ''
+    '';
   };
 
 }
