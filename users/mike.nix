@@ -15,8 +15,6 @@
     createHome   = true;
     description  = "mike";
     packages     = with pkgs; [
-      ansible
-      ansible-lint
       atuin
       bat
       bfs
