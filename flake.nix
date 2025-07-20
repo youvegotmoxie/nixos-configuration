@@ -11,17 +11,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, ...}:
-    let
-      lib = nixpkgs.lib;
-    in {
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, ...}@inputs:
+
+    {
     nixosConfigurations = {
-      snafu-nixos = lib.nixosSystem {
+      snafu-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
            # Import the main module
           ./configuration.nix
         ];
+        specialArgs = { inherit inputs; };
       };
     };
   };
