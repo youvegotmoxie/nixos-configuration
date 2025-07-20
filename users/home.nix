@@ -49,6 +49,34 @@
         pager = "delta --pager=never --max-line-length=0";
         editor = "nvim";
       };
+      init = {
+        defaultBranch = "master";
+      };
+      pull = {
+        rebase = false;
+      };
+      interactive = {
+        diffFilter = "delta --color-only";
+      };
+      delta = {
+        navigate = false;
+        light = false;
+        hyperlinks = true;
+      };
+      merge = {
+        conflictstyle = "diff3";
+      };
+      diff = {
+        colorMoved = "default";
+      };
+      push = {
+        autoSetupRemove = true;
+      };
+      filter = {
+        lfs = {
+          clean = "git-lfs clean -- %f";
+        };
+      };
     };
   };
 
