@@ -11,4 +11,4 @@
     "com.todoist.Todoist"
     "dev.salaniLeo.forecast"
   ];
-
+}
