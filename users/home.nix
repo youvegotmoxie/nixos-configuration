@@ -17,7 +17,10 @@
   home.homeDirectory = "/home/mike";
 
   # Set EDITOR to nvim
-  programs.neovim.defaultEditor = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Install user packages
   home.packages = with pkgs; [
@@ -40,7 +43,6 @@
     lazydocker
     lazygit
     nodejs
-    neovim
     pre-commit
     ripgrep
     starship
