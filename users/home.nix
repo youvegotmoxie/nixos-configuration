@@ -37,9 +37,8 @@
 
   dconf.settings = {
       "org/gnome/calculator" = {
-        show-thousands = true;
-        window-position = lib.hm.gvariant.mkTuple [100 100];
       };
   };
 
+  home.file.testing.text = "test";
 }
