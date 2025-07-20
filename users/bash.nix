@@ -21,10 +21,6 @@
       set -o vi
 
       ## init shell programs
-      # Disable as home-manager adds this #
-      # eval "$(atuin init bash --disable-up-arrow)"
-
-      eval "$(starship init bash)"
       eval "$(zoxide init bash --cmd cd)"
 
       # If a Python venv exists then activate it
