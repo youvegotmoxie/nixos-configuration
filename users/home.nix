@@ -86,7 +86,9 @@
     };
   };
 
-  home.file."/home/mike/test-file".text = "test file content";
+  home.file."testing".text = ''
+    testing
+  '';
 
   # Configure bash
   programs.bash = {
