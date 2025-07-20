@@ -35,8 +35,8 @@
     virt-manager
   ];
 
-  home.shellAliases = {
-    g = "git";
+  home.shell = {
+    enableBashIntegration = true;
   };
 
 }
