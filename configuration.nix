@@ -62,6 +62,7 @@
     clang
     git
     lsb-release
+    cmake
     nh
     python3
     pinentry-curses
