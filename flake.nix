@@ -13,7 +13,6 @@
   outputs = { self, nixpkgs, home-manager, ...}:
     let
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
