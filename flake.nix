@@ -13,6 +13,7 @@
   outputs = { self, nixpkgs, ...}@inputs:
     let
       lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
