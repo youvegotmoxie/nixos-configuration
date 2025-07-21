@@ -29,6 +29,7 @@
         "/home/mike/.local/share/Steam"
         "/home/mike/Downloads"
         "/home/mike/.cache"
+        "/home/mike/.local/share/gnome-boxes/images"
       ];
       passwordFile = "/opt/backups/password.txt";
       pruneOpts = [
