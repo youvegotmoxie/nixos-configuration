@@ -39,6 +39,9 @@
         onCalendar = "daily";
         randomizedDelaySec = "1h";
       };
+      extraBackupArgs = [
+        "--cleanup-cache"
+      ];
     };
   };
 
