@@ -18,6 +18,7 @@
   home.homeDirectory = "/home/mike";
 
   # Configure sops
+  # TODO: Ansible the manual setup portion of this
   sops = {
     age = {
       keyFile = "/home/mike/.config/sops/age/keys.txt";
@@ -30,7 +31,7 @@
   };
 
   sops.secrets.restic_password = {
-    path = "/opt/backups/password.txt";
+    path = "${restic_passwd_path}";
   };
 
   # Configure home-manager

@@ -19,6 +19,7 @@
   outputs = { self, nixpkgs, home-manager, nix-flatpak, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
+      restic_passwd_path = "/opt/backups/password.txt";
     in
     {
       nixosConfigurations = {
