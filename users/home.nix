@@ -22,6 +22,7 @@
   services.home-manager.autoExpire.enable = true;
 
   # Configure backups
+  services.restic.enable = true;
   services.restic.backups = {
     localbackup = {
       exclude = [
