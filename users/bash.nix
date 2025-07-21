@@ -4,7 +4,7 @@
 
   # Configure bash
   sops.secrets.gh_token = {
-    path = "gh_token";
+    path = "${config.sops.defaultSymlinkPath}/gh_token";
   };
   home.shell.enableBashIntegration = true;
   programs.bash = {
