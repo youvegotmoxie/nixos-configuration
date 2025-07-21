@@ -9,7 +9,7 @@
     enableCompletion = true;
     enableVteIntegration = true;
     sessionVariables = {
-      GH_TOKEN = ${config.sops.secrets.gh_token.path};
+      GH_TOKEN = "${config.sops.secrets.gh_token.path}";
     };
     shellAliases = {
       # Aliases not set by Atuin
