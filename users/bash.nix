@@ -3,14 +3,14 @@
 {
 
   # Configure bash
-  sops.secrets.gh_token = { };
+  gh = sops.secrets.gh_token = {};
   home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
     sessionVariables = {
-      GH_TOKEN = "${sops.secrets.gh_token}";
+      GH_TOKEN = gh;
     };
     shellAliases = {
       # Aliases not set by Atuin
