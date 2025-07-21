@@ -19,6 +19,8 @@
       ll = "eza -lahg --git-repos-no-status --git";
       ls = "eza";
       cat = "bat --paging=never --style=plain";
+      gcm = "git checkout master";
+      gpm = "git pull origin master";
     };
     bashrcExtra = ''
       if [[ $- != *i* ]] ; then
