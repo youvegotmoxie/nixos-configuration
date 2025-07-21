@@ -3,6 +3,9 @@
 {
 
   # Configure bash
+  sops.secrets.gh_token = {
+    path = "gh_token";
+  };
   home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
