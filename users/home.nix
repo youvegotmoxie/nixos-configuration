@@ -29,6 +29,7 @@
         "/home/*/.local"
       ];
       initialize = true;
+      passwordFile = "/opt/backups/password.txt";
       paths = [
         "/home"
       ];
