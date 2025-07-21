@@ -28,7 +28,14 @@
     defaultSopsFile = ./secrets/global.yaml;
   };
 
-  sops.secrets.restic_password = { };
+  let
+  restic_password_path = "/opt/backups/password.txt";
+  in
+  {
+
+  sops.secrets.restic_password = {
+    path = "${restic_password_path}";
+  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -143,5 +150,6 @@
     zoxide
     gnome-boxes
   ];
+};
 
 }
