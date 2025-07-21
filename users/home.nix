@@ -25,7 +25,7 @@
         "/home/mike/.ssh/sops_ed25519"
       ];
     };
-    defaultSopsFile = "./secrets/global.yaml";
+    defaultSopsFile = "/home/mike/.sops/secrets/global.yaml";
   };
 
   sops.secrets.example-key = { };
