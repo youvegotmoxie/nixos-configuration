@@ -19,11 +19,13 @@
 
   # Configure sops
   sops = {
-    age.sshKeyPaths = [
-      "/home/mike/.ssh/sops_ed25519"
-    ];
+    age = {
+      keyFile = "/home/mike/.config/sops/age/keys.txt";
+      sshKeyPaths = [
+        "/home/mike/.ssh/sops_ed25519"
+      ];
+    };
     defaultSopsFile = "/home/mike/.sops/secrets/global.yaml";
-    keyFile = "/home/mike/.config/sops/age/keys.txt";
   };
 
   # Configure home-manager
