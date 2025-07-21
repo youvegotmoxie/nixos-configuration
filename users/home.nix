@@ -17,6 +17,15 @@
   home.username = "mike";
   home.homeDirectory = "/home/mike";
 
+  # Configure sops
+  sops = {
+    age.sshKeyPaths = [
+      "/home/mike/.ssh/sops_ed25519"
+    ];
+    defaultSopsFile = "/home/mike/.sops/secrets/global.yaml";
+    keyFile = "/home/mike/.config/sops/age/keys.txt";
+  };
+
   # Configure home-manager
   programs.home-manager.enable = true;
   services.home-manager.autoExpire.enable = true;
@@ -120,6 +129,7 @@
     nodejs
     pre-commit
     ripgrep
+    sops
     starship
     tree
     ugrep

@@ -37,7 +37,7 @@
               home-manager.users.mike.home.stateVersion = "25.05";
               # Use Home Manager to manage Flatpaks
               home-manager.users."mike".imports = [
-                # sops-nix for home-manager
+                # Add sops-nix support for home-manager
                 sops-nix.homeManagerModules.sops
                 # Flatpak NixOS configuration
                 nix-flatpak.homeManagerModules.nix-flatpak
