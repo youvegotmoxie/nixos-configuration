@@ -3,7 +3,9 @@
 {
 
   # Configure bash
-  gh = sops.secrets.gh_token = {};
+  sops.templates.gh_token.content = ''
+    gh = "${config.sops.gh_token.gh_token}"
+  '';
   home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
