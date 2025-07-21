@@ -8,7 +8,7 @@
     enableCompletion = true;
     enableVteIntegration = true;
     shellAliases = {
-      # aliases not set by Atuin
+      # Aliases not set by Atuin
       ll = "eza -lahg --git-repos-no-status --git";
       ls = "eza";
       cat = "bat --paging=never --style=plain";
