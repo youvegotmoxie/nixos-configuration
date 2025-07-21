@@ -22,19 +22,19 @@
   services.home-manager.autoExpire.enable = true;
 
   # Configure backups
-  # services.restic.enable = true;
-  # services.restic.backups = {
-  #   localbackup = {
-  #     exclude = [
-  #       "/home/*/.local"
-  #     ];
-  #     passwordFile = "/opt/backups/password.txt";
-  #     paths = [
-  #       "/home"
-  #     ];
-  #     repository = "/opt/backups";
-  #   };
-  # };
+  services.restic.enable = true;
+  services.restic.backups = {
+    localbackup = {
+      exclude = [
+        "/home/*/.local"
+      ];
+      passwordFile = "/opt/backups/password.txt";
+      paths = [
+        "/home"
+      ];
+      repository = "/opt/backups";
+    };
+  };
 
   # Do this instead of setting up Chezmoi
   home.file.".pre-commit.yaml".text = ''
