@@ -26,13 +26,19 @@
   services.restic.backups = {
     localbackup = {
       exclude = [
-        "/home/mike/.local"
+        "/home/mike/.local/share/Steam"
+        "/home/mike/Downloads"
       ];
       passwordFile = "/opt/backups/password.txt";
       paths = [
         "/home/mike"
       ];
       repository = "/opt/backups";
+      timerConfig = {
+        onCalendar = "daily";
+        onCalendar = "weekly";
+        onCalendar = "monthly";
+      };
     };
   };
 
