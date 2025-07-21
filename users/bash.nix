@@ -12,7 +12,7 @@
     enableCompletion = true;
     enableVteIntegration = true;
     sessionVariables = {
-      GH_TOKEN = gh;
+      GH_TOKEN = "${gh}";
     };
     shellAliases = {
       # Aliases not set by Atuin
