@@ -21,8 +21,23 @@
   programs.home-manager.enable = true;
   services.home-manager.autoExpire.enable = true;
 
-  # Do this instead of setting up Chezmoi
-  home.file.".pre-commit.yaml".text = ''
+  # Configure backups
+  services.restic.backups =
+    {
+      localbackup = {
+        exclude = [
+          "/home/*/.local"
+        ];
+        initialize = true;
+        paths = [
+          "/home"
+        ];
+        repository = "/opt/backups";
+      };
+    }
+
+      # Do this instead of setting up Chezmoi
+      home.file.".pre-commit.yaml".text = ''
     # See https://pre-commit.com for more information
     # See https://pre-commit.com/hooks.html for more hooks
     repos:
