@@ -52,7 +52,7 @@ in
         "/home/mike/.cache"
         "/home/mike/.local/share/gnome-boxes"
       ];
-      passwordFile = "/opt/backups/password.txt";
+      passwordFile = "${restic_passwd_path}";
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 4"
