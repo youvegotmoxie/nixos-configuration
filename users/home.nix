@@ -32,7 +32,7 @@
       ];
       passwordFile = "/opt/backups/password.txt";
       pruneOpts = [
-        "--keep-daily 5"
+        "--keep-daily 7"
         "--keep-weekly 4"
         "--keep-monthly 1"
       ];
