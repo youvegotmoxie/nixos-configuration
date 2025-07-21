@@ -1,16 +1,15 @@
-{ lib, config, pkgs, home-manager, ... }:
+{ lib, config, pkgs, home-manager, sops-nix, ... }:
 
 {
 
   # Configure bash
-  gh = sops.secrets.gh_token;
   home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
     sessionVariables = {
-      GH_TOKEN = "${gh}";
+      GH_TOKEN = ${config.sops.secrets.gh_token.path};
     };
     shellAliases = {
       # Aliases not set by Atuin
