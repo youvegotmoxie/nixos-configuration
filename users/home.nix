@@ -31,6 +31,11 @@
         "/home/mike/.cache"
       ];
       passwordFile = "/opt/backups/password.txt";
+      pruneOpts = [
+        "--keep-daily 5"
+        "--keep-weekly 4"
+        "--keep-monthly 1"
+      ];
       paths = [
         "/home/mike"
       ];
