@@ -11,9 +11,9 @@
     enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
-    sessionVariables = {
-      GH_TOKEN = "${config.sops.secrets.gh_token.path}";
-    };
+    initExtra = ''
+      export GH_TOKEN="$(cat ${sops.secrets.gh_token.path})"
+    '';
     shellAliases = {
       # Aliases not set by Atuin
       ll = "eza -lahg --git-repos-no-status --git";
