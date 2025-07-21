@@ -83,7 +83,6 @@
     gh
     ghostty
     go
-    home-manager
     jdk21_headless
     jq
     lazydocker
