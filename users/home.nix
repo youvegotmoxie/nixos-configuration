@@ -2,6 +2,7 @@
 
 {
 
+  # Per-application NixOS configuration
   imports = [
     ./atuin.nix
     ./bash.nix
@@ -19,6 +20,11 @@
   # Configure home-manager
   programs.home-manager.enable = true;
   services.home-manager.autoExpire.enable = true;
+
+  home.file.".pre-commit.yaml".text = ''
+    this is a test
+  '';
+
 
   # Set EDITOR to nvim
   programs.neovim = {
