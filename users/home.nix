@@ -141,7 +141,6 @@ in
     nodejs
     pre-commit
     ripgrep
-    sops
     starship
     tree
     ugrep

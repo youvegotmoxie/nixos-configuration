@@ -68,6 +68,7 @@
     pinentry-curses
     restic
     rocmPackages.rocm-smi
+    sops
     unzip
     vim
     wget
