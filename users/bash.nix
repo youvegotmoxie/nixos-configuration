@@ -12,7 +12,7 @@
     enableCompletion = true;
     enableVteIntegration = true;
     initExtra = ''
-      export GH_TOKEN="$(cat ${sops.secrets.gh_token.path})"
+      export GH_TOKEN="$(cat ${config.sops.secrets.gh_token.path})"
     '';
     shellAliases = {
       # Aliases not set by Atuin
