@@ -36,8 +36,8 @@
       ];
       repository = "/opt/backups";
       timerConfig = {
-        onCalendar = "daily";
-        randomizedDelaySec = "1h";
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
       };
       extraBackupArgs = [
         "--cleanup-cache"
