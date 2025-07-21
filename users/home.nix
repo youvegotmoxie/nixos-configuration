@@ -20,6 +20,7 @@ in
   # Set home defaults
   home.username = "mike";
   home.homeDirectory = "/home/mike";
+  home.shell.enableBashIntegration = true;
 
   # Configure sops
   # TODO: Ansible the manual setup portion of this
