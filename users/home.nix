@@ -28,6 +28,7 @@
       exclude = [
         "/home/mike/.local/share/Steam"
         "/home/mike/Downloads"
+        "/home/mike/.cache"
       ];
       passwordFile = "/opt/backups/password.txt";
       paths = [
@@ -36,8 +37,7 @@
       repository = "/opt/backups";
       timerConfig = {
         onCalendar = "daily";
-        onCalendar = "weekly";
-        onCalendar = "monthly";
+        randomizedDelaySec = "1h";
       };
     };
   };
