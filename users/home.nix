@@ -12,6 +12,10 @@
     ./starship.nix
     ./zoxide.nix
   ];
+  let
+  restic_passwd_path = "/opt/backups/password.txt";
+  in
+  {
 
   # Set home defaults
   home.username = "mike";
@@ -147,5 +151,6 @@
     zoxide
     gnome-boxes
   ];
+};
 
 }
