@@ -25,6 +25,7 @@
         "/home/mike/.ssh/sops_ed25519"
       ];
     };
+    # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
     defaultSopsFile = ./secrets/global.yaml;
   };
 
