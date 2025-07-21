@@ -57,8 +57,7 @@
     - repo: https://github.com/gruntwork-io/pre-commit
       rev: 'v0.1.29'
       hooks:
-      - id: terraform-validate
-  '';
+      - id: terraform-validate'';
 
 
   # Set EDITOR to nvim
