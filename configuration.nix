@@ -66,6 +66,7 @@
     nh
     python3
     pinentry-curses
+    restic
     rocmPackages.rocm-smi
     unzip
     vim
