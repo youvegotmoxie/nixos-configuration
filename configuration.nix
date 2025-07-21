@@ -61,6 +61,7 @@
     btop
     clang
     git
+    home-manager
     lsb-release
     nh
     python3
