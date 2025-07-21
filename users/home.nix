@@ -26,11 +26,11 @@
   services.restic.backups = {
     localbackup = {
       exclude = [
-        "/home/*/.local"
+        "/home/mike/.local"
       ];
       passwordFile = "/opt/backups/password.txt";
       paths = [
-        "/home"
+        "/home/mike"
       ];
       repository = "/opt/backups";
     };
