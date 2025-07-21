@@ -28,7 +28,7 @@
     defaultSopsFile = "/home/mike/.sops/secrets/global.yaml";
   };
 
-  sops.secrets.example-key = { };
+  # sops.secrets.example-key = {};
 
   # Configure home-manager
   programs.home-manager.enable = true;
