@@ -1,15 +1,16 @@
-{ lib, pkgs, ... }:
-
 {
-
+  lib,
+  pkgs,
+  ...
+}: {
   # Create user's main group
-  users.groups."mike" = { };
+  users.groups."mike" = {};
 
   # Create user
   users.users."mike" = {
     isNormalUser = true;
     group = "mike";
-    extraGroups = [ "wheel" "users" "qemu-libvirtd" "docker" ];
+    extraGroups = ["wheel" "users" "qemu-libvirtd" "docker"];
     shell = pkgs.bash;
     home = "/home/mike";
     createHome = true;
@@ -60,5 +61,4 @@
       setSocketVariable = false;
     };
   };
-
 }
