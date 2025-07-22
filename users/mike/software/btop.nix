@@ -11,6 +11,7 @@
     };
   };
 
+  # Time to stop copying this file from machine to machine...
   home.file.".config/btop/themes/tokyo-night.theme".text = ''
     # Theme: tokyo-night
     # By: Pascal Jaeger
