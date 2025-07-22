@@ -1,10 +1,8 @@
 { pkgs, ... }:
 
-let
-  restic_passwd_path = "/backups/snafu-nixos/password.txt";
-in
+let restic_passwd_path = "/backups/snafu-nixos/password.txt";
 
-{
+in {
 
   # Per-application NixOS configuration
   imports = [
@@ -26,17 +24,13 @@ in
   sops = {
     age = {
       keyFile = "/home/mike/.config/sops/age/keys.txt";
-      sshKeyPaths = [
-        "/home/mike/.ssh/sops_ed25519"
-      ];
+      sshKeyPaths = [ "/home/mike/.ssh/sops_ed25519" ];
     };
     # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
     defaultSopsFile = ./secrets/global.yaml;
   };
 
-  sops.secrets.restic_password = {
-    path = "${restic_passwd_path}";
-  };
+  sops.secrets.restic_password = { path = "${restic_passwd_path}"; };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -49,26 +43,19 @@ in
         "/home/mike/.local/share/Steam"
         "/home/mike/Downloads"
         "/home/mike/.cache"
+        "/home/mike/.cargo"
         "/home/mike/.local/share/gnome-boxes"
         "/home/mike/.local/share/docker"
       ];
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = [
-        "--keep-daily 3"
-        "--keep-weekly 2"
-        "--keep-monthly 1"
-      ];
-      paths = [
-        "/home/mike"
-      ];
+      pruneOpts = [ "--keep-daily 3" "--keep-weekly 2" "--keep-monthly 1" ];
+      paths = [ "/home/mike" ];
       repository = "/backups/snafu-nixos";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
       };
-      extraBackupArgs = [
-        "--cleanup-cache"
-      ];
+      extraBackupArgs = [ "--cleanup-cache" ];
     };
   };
 
