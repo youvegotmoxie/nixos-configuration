@@ -9,7 +9,7 @@
       update_ms = 2000;
       proc_per_core = true;
     };
-    theme = {
+    themes = {
       tokyo-night = ''
         theme[main_bg]="#1a1b26"
         theme[main_fg]="#cfc9c2"
