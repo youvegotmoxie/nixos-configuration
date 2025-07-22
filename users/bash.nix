@@ -1,4 +1,4 @@
-{ lib, config, pkgs, home-manager, sops-nix, ... }:
+{ config, ... }:
 
 {
 
