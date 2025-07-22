@@ -1,4 +1,4 @@
-name: "Test"
+name: "Format nix files"
 on:
   push:
 jobs:
