@@ -29,8 +29,12 @@
   };
   networking.firewall = {
     enable = true;
+    # Tailscale optimization
     allowedTCPPortRanges = [{ from = 1716; to = 1764; }];
     allowedUDPPortRanges = [{ from = 1716; to = 1764; }];
+    # Jellyfin
+    allowedTCPPorts = [ 8096 8920 ];
+    allowedUDPPorts = [ 7359 1900 ];
   };
 
   # TZ and localization settings
