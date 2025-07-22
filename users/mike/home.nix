@@ -1,8 +1,10 @@
 { pkgs, ... }:
 
-let restic_passwd_path = "/backups/snafu-nixos/password.txt";
+let
+  restic_passwd_path = "/backups/snafu-nixos/password.txt";
 
-in {
+in
+{
 
   # Per-application NixOS configuration
   imports = [
@@ -30,7 +32,9 @@ in {
     defaultSopsFile = ./secrets/global.yaml;
   };
 
-  sops.secrets.restic_password = { path = "${restic_passwd_path}"; };
+  sops.secrets.restic_password = {
+    path = "${restic_passwd_path}";
+  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -48,7 +52,11 @@ in {
         "/home/mike/.local/share/docker"
       ];
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = [ "--keep-daily 3" "--keep-weekly 2" "--keep-monthly 1" ];
+      pruneOpts = [
+        "--keep-daily 3"
+        "--keep-weekly 2"
+        "--keep-monthly 1"
+      ];
       paths = [ "/home/mike" ];
       repository = "/backups/snafu-nixos";
       timerConfig = {
