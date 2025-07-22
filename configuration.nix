@@ -27,6 +27,9 @@
     networkmanager.enable = true;
     enableIPv6 = true;
   };
+
+  # Setup firewall
+  networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
     # Tailscale optimization
