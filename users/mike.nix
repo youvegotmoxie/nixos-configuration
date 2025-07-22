@@ -55,8 +55,8 @@
     enableOnBoot = true;
     storageDriver = "btrfs";
     rootless = {
-      enable = false;
-      # setSocketVariable = true;
+      enable = true;
+      setSocketVariable = true;
     };
   };
 
