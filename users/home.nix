@@ -133,6 +133,7 @@ in
     bitwarden
     bitwarden-cli
     brave
+    cargo
     delta
     eza
     fd
