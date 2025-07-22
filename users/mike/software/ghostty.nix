@@ -20,7 +20,6 @@
     clipboard-paste-protection = false
     mouse-hide-while-typing = true
     confirm-close-surface = false
-    quit-after-last-window-closed = true
-  '';
+    quit-after-last-window-closed = true'';
 
 }

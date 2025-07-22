@@ -72,6 +72,6 @@
     # Upload graph colors
     theme[upload_start]="#9ece6a"
     theme[upload_mid]="#e0af68"
-    theme[upload_end]="#f7768e"
-  '';
+    theme[upload_end]="#f7768e"'';
+
 }
