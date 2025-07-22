@@ -4,8 +4,10 @@
     ./hardware-configuration.nix
     ./users/mike.nix
     ./system/filesystems.nix
-    # TODO: do this the nix way with mkOption
+    # Enabled by default
     ./desktop/gnome.nix
+    # Disabled by default
+    ./desktop/hyprland.nix
   ];
 
   # Bootloader and kernel configuration
@@ -91,10 +93,6 @@
     vim
     wget
   ];
-
-  # Install and configure Flatpak
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
 
   # Allow non-root use of restic
   users.users.restic = {
