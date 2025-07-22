@@ -7,7 +7,7 @@
   cfg = config.hypr;
 in {
   options.hypr = {
-    enable = lib.mkEnableOption "Enable/disable";
+    enable = lib.mkEnableOption "hypr";
     type = lib.mkOption {
       description = "true/false";
       type = lib.types.bool;

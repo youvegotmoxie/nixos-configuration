@@ -6,12 +6,7 @@
 }: let
   cfg = config.gnome;
 in {
-  options.gnome = {
-    enable = lib.mkEnableOption "Enable/disable";
-    type = lib.mkOption {
-      description = "true/false";
-      type = lib.types.bool;
-    };
+  options.gnome.enable = lib.mkOption {
     default = true;
   };
   config = lib.mkIf cfg.enable {
