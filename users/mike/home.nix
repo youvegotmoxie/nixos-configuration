@@ -50,6 +50,7 @@ in
         "/home/mike/Downloads"
         "/home/mike/.cache"
         "/home/mike/.local/share/gnome-boxes"
+        "/home/mike/.local/share/docker"
       ];
       passwordFile = "${restic_passwd_path}";
       pruneOpts = [
