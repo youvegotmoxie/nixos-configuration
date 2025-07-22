@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  restic_passwd_path = "/opt/backups/password.txt";
+  restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in
 
 {
@@ -60,7 +60,7 @@ in
       paths = [
         "/home/mike"
       ];
-      repository = "/opt/backups";
+      repository = "/backups/snafu-nixos";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
