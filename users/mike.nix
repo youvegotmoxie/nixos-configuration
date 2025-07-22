@@ -51,12 +51,12 @@
 
   # Install Docker
   virtualisation.docker = {
-    enable = false;
+    enable = true;
     enableOnBoot = true;
     storageDriver = "btrfs";
     rootless = {
-      enable = true;
-      setSocketVariable = true;
+      enable = false;
+      setSocketVariable = false;
     };
   };
 
