@@ -9,7 +9,12 @@
   users.users."mike" = {
     isNormalUser = true;
     group = "mike";
-    extraGroups = [ "wheel" "users" "qemu-libvirtd" "docker" ];
+    extraGroups = [
+      "wheel"
+      "users"
+      "qemu-libvirtd"
+      "docker"
+    ];
     shell = pkgs.bash;
     home = "/home/mike";
     createHome = true;
@@ -23,7 +28,8 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
       "steam-original"
