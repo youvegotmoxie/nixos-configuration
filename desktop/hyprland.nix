@@ -1,3 +1,4 @@
+# TODO: use home-manager to configure hyprland instead of config files
 {
   config,
   lib,
