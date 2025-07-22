@@ -15,7 +15,7 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
     - name: "Format with nixpkgs-fmt"
-      run: 'nix-shell -p nixpkgs-fmt --run "nixpkgs-fmt ."'
+      run: 'nix-shell -p nixfmt-tree --run "treefmt -f nixfmt ."'
     - name: "Commit formatted files"
       uses: stefanzweifel/git-auto-commit-action@v6
       with:

@@ -14,6 +14,9 @@
   fileSystems."/backups" = {
     device = "/dev/disk/by-uuid/2da4ca3c-5cfa-4759-8d64-de5f553e16e7";
     fsType = "ext4";
-    options = [ "noatime" "defaults" ];
+    options = [
+      "noatime"
+      "defaults"
+    ];
   };
 }

@@ -16,7 +16,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, sops-nix, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-flatpak,
+      sops-nix,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
     in

@@ -111,7 +111,6 @@ in
       - id: terraform-validate
   '';
 
-
   # Set EDITOR to nvim
   programs.neovim = {
     enable = true;
