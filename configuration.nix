@@ -4,11 +4,13 @@
     ./hardware-configuration.nix
     ./users/mike.nix
     ./system/filesystems.nix
-    # Enabled by default
     ./desktop/gnome.nix
-    # Disabled by default
     ./desktop/hyprland.nix
   ];
+
+  # Install and configure Gnome
+  # This also enables Flatpak
+  gnome.enable = true;
 
   # Bootloader and kernel configuration
   boot = {
