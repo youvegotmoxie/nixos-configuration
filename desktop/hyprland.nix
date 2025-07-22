@@ -15,10 +15,6 @@ in {
     default = false;
   };
   config = lib.mkIf cfg.enable {
-    xdg.portal = {
-      enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-    };
     # Install Hyprland
     programs.hyprland = {
       enable = true;
@@ -56,6 +52,7 @@ in {
     # Enable Hypr* utils
     programs.hyprlock.enable = true;
     services.hypridle.enable = true;
+    xdg.portal.enable = true;
 
     # Install and configure Flatpak
     services.flatpak.enable = true;

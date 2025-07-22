@@ -11,10 +11,6 @@ in {
   };
   config = lib.mkIf cfg.enable {
     services.desktopManager.gnome.enable = true;
-    xdg.portal = {
-      enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    };
 
     environment.systemPackages = with pkgs; [
       gjs
@@ -47,7 +43,8 @@ in {
       xdg-desktop-portal-gtk
     ];
 
-    # Install and configure Flatpak
+    # Enable required services
     services.flatpak.enable = true;
+    xdg.portal.enable = true;
   };
 }
