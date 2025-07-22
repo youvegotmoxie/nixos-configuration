@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";

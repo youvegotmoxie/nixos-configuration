@@ -8,12 +8,12 @@
   # Create user
   users.users."mike" = {
     isNormalUser = true;
-    group        = "mike";
-    extraGroups  = [ "wheel" "users" "qemu-libvirtd" "docker" ];
-    shell        = pkgs.bash;
-    home         = "/home/mike";
-    createHome   = true;
-    description  = "mike";
+    group = "mike";
+    extraGroups = [ "wheel" "users" "qemu-libvirtd" "docker" ];
+    shell = pkgs.bash;
+    home = "/home/mike";
+    createHome = true;
+    description = "mike";
   };
 
   # Install and configure Steam
@@ -39,10 +39,12 @@
       swtpm.enable = true;
       ovmf = {
         enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
       };
     };
   };
