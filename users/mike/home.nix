@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
@@ -111,7 +111,6 @@ in
       hooks:
       - id: terraform-validate
   '';
-
 
   # Set EDITOR to nvim
   programs.neovim = {

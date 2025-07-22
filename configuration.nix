@@ -2,13 +2,12 @@
 
 {
   # Add config file imports
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./users/mike.nix
-      ./system/filesystems.nix
-      ./desktop/gnome.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./users/mike.nix
+    ./system/filesystems.nix
+    ./desktop/gnome.nix
+  ];
 
   # Bootloader and kernel configuration
   boot = {
@@ -33,11 +32,27 @@
   networking.firewall = {
     enable = true;
     # Tailscale optimization
-    allowedTCPPortRanges = [{ from = 1716; to = 1764; }];
-    allowedUDPPortRanges = [{ from = 1716; to = 1764; }];
+    allowedTCPPortRanges = [
+      {
+        from = 1716;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1716;
+        to = 1764;
+      }
+    ];
     # Jellyfin
-    allowedTCPPorts = [ 8096 8920 ];
-    allowedUDPPorts = [ 7359 1900 ];
+    allowedTCPPorts = [
+      8096
+      8920
+    ];
+    allowedUDPPorts = [
+      7359
+      1900
+    ];
   };
 
   # TZ and localization settings
@@ -130,7 +145,10 @@
   # Internal NixOS confguration
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     allowed-users = [
       "@wheel"
     ];
