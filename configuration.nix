@@ -6,7 +6,7 @@
     [
       ./hardware-configuration.nix
       ./users/mike.nix
-      ./filesystems.nix
+      ./system/filesystems.nix
       ./desktop/gnome.nix
     ];
 
