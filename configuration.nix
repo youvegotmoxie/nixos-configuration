@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Add config file imports
@@ -12,10 +12,12 @@
 
   # Bootloader and kernel configuration
   boot = {
+    tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      timeout = 2;
     };
   };
 
@@ -23,6 +25,7 @@
   networking = {
     hostName = "snafu-nixos";
     networkmanager.enable = true;
+    enableIPv6 = true;
   };
   networking.firewall = {
     enable = true;
