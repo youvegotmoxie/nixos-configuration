@@ -145,7 +145,6 @@ in
     lazydocker
     lazygit
     nodejs
-    nixd
     pre-commit
     ripgrep
     starship
