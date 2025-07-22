@@ -1,6 +1,6 @@
 name: "Format nix files"
 on:
-  push:
+  pull_request:
 jobs:
   fmt:
     runs-on: ubuntu-latest
