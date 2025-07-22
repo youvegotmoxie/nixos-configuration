@@ -115,6 +115,8 @@
     xone.enable = true;
   };
 
+  # Let Nix manage Nix
+  nix.package = pkgs.nix;
   # Internal NixOS confguration
   nix.settings = {
     auto-optimise-store = true;

@@ -1,12 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
 
   # Create user's main group
-  users.groups.mike = { };
+  users.groups."mike" = { };
 
   # Create user
-  users.users.mike = {
+  users.users."mike" = {
     isNormalUser = true;
     group = "mike";
     extraGroups = [ "wheel" "users" "qemu-libvirtd" "docker" ];
