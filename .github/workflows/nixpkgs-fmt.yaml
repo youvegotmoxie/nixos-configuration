@@ -4,8 +4,12 @@ on:
 jobs:
   fmt:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
     - name: "Install Nix"
       uses: cachix/install-nix-action@v31
       with:
@@ -13,7 +17,7 @@ jobs:
     - name: "Format with nixpkgs-fmt"
       run: 'nix-shell -p nixpkgs-fmt --run "nixpkgs-fmt ."'
     - name: "Commit formatted files"
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: Automated Change
         commit_options: '--no-verify --signoff'
@@ -21,5 +25,3 @@ jobs:
         commit_author: Author <github-actions@nixos-ansible>
         create_branch: false
         branch: ${{ github.head_ref }}
-      env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
