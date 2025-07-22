@@ -51,7 +51,7 @@
 
   # Install Docker
   virtualisation.docker = {
-    enable = true;
+    enable = false;
     enableOnBoot = true;
     storageDriver = "btrfs";
     rootless = {
