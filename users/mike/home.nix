@@ -165,5 +165,6 @@ in {
     yq
     zoxide
     gnome-boxes
+    networkmanagerapplet
   ];
 }
