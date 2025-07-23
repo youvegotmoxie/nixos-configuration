@@ -141,6 +141,12 @@
     xone.enable = true;
   };
 
+  # Configure zram swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 35;
+  };
+
   # Let Nix manage Nix
   nix.package = pkgs.nix;
   # Internal NixOS confguration
