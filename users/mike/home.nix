@@ -35,6 +35,18 @@ in {
   # Configure backups
   services.restic.enable = true;
   services.restic.backups = {
+    "etc_nixos" = {
+      initialize = true;
+      passwordFile = "${restic_passwd_path}";
+      pruneOpts = ["--keep-hourly 24"];
+      paths = ["/etc/nixos"];
+      repository = "/backups/snafu-nixos/etc_nixos";
+      timerConfig = {
+        OnCalendar = "hourly";
+        RandomizedDelaySec = "10m";
+      };
+      extraBackupArgs = ["--cleanup-cache"];
+    };
     "home_mike" = {
       initialize = true;
       exclude = [
