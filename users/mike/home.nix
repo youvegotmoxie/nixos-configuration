@@ -35,7 +35,8 @@ in {
   # Configure backups
   services.restic.enable = true;
   services.restic.backups = {
-    localbackup = {
+    "home_mike" = {
+      initialize = true;
       exclude = [
         "/home/mike/.local/share/Steam"
         "/home/mike/Downloads"
