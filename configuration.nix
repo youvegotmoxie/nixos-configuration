@@ -19,7 +19,7 @@
 
   # Bootloader and kernel configuration
   boot = {
-    tmp.useTmpfs = true;
+    tmp.useZram = true;
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;

@@ -40,7 +40,7 @@
     fsType = "btrfs";
   };
 
-  # swapDevices = [{device = "/dev/disk/by-uuid/d4b47877-410b-4d59-be68-9c4d3bfc0123";}];
+  swapDevices = [{device = "/dev/disk/by-uuid/d4b47877-410b-4d59-be68-9c4d3bfc0123";}];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
