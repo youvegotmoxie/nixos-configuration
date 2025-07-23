@@ -35,7 +35,6 @@
   # Setup QEMU + KVM
   virtualisation.libvirtd = {
     enable = true;
-    allowedBridges = ["br0"];
     qemu = {
       package = pkgs.qemu_kvm;
       runAsRoot = false;
@@ -60,30 +59,6 @@
     rootless = {
       enable = false;
       setSocketVariable = false;
-    };
-  };
-  systemd.network = {
-    enable = true;
-    netdevs = {
-      "br0" = {
-        netdevConfig = {
-          Kind = "bridge";
-          Name = "br0";
-        };
-      };
-    };
-    networks = {
-      "30-enp35s0" = {
-        matchConfig.Name = "enp35s0";
-        networkConfig.Bridge = "br0";
-        linkConfig.RequiredForOnline = "enslaved";
-      };
-      "40-br0" = {
-        matchConfig.Name = "br0";
-        networkConfig = {
-          DHCP = "ipv4";
-        };
-      };
     };
   };
 }
