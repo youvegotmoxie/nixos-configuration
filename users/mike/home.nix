@@ -152,6 +152,7 @@ in {
     jq
     lazydocker
     lazygit
+    networkmanagerapplet
     nh
     nodejs
     python313
@@ -160,11 +161,9 @@ in {
     tree
     ugrep
     unzip
-    uv
     viddy
     yq
     zoxide
     gnome-boxes
-    networkmanagerapplet
   ];
 }
