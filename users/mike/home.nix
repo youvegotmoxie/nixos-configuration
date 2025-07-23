@@ -141,6 +141,7 @@ in {
     bitwarden-cli
     brave
     cargo
+    clang
     delta
     eza
     fd
