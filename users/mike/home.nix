@@ -104,8 +104,7 @@ in {
     - repo: https://github.com/gruntwork-io/pre-commit
       rev: 'v0.1.30'
       hooks:
-      - id: terraform-validate
-  '';
+      - id: terraform-validate'';
 
   # Set EDITOR to nvim
   programs.neovim = {
@@ -122,8 +121,6 @@ in {
 
   # Install user packages
   home.packages = with pkgs; [
-    ansible
-    ansible-lint
     atuin
     bat
     bfs
@@ -142,6 +139,7 @@ in {
     lazydocker
     lazygit
     nodejs
+    python313
     ripgrep
     starship
     tree
