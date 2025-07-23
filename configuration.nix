@@ -88,13 +88,10 @@
 
   # Globally installed packages
   environment.systemPackages = with pkgs; [
-    btop
     clang
     git
-    home-manager
     lsb-release
     nh
-    python3
     pinentry-curses
     restic
     rocmPackages.rocm-smi
