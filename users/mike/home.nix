@@ -65,7 +65,8 @@ in {
         key_groups:
           - pgp:
             age:
-            - *mike'';
+            - *mike
+  '';
 
   # Do this instead of setting up Chezmoi
   home.file.".pre-commit-config.yaml".text = ''
