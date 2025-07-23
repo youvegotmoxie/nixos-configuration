@@ -38,7 +38,7 @@ in {
     "etc_nixos" = {
       initialize = true;
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = ["--keep-hourly 24"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 12"];
       paths = ["/etc/nixos"];
       repository = "/backups/snafu-nixos/etc_nixos";
       timerConfig = {
