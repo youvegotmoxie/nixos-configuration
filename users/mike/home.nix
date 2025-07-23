@@ -48,7 +48,7 @@ in {
       passwordFile = "${restic_passwd_path}";
       pruneOpts = ["--keep-daily 3" "--keep-weekly 2" "--keep-monthly 1"];
       paths = ["/home/mike"];
-      repository = "/backups/snafu-nixos";
+      repository = "/backups/snafu-nixos/mike";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
