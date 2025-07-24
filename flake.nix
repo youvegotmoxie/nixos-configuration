@@ -43,6 +43,13 @@
           home-manager.nixosModules.home-manager
           comin.nixosModules.comin
           {
+          sops = {
+            age = {
+              keyFile = "/home/mike/.config/sops/age/keys.txt";
+              sshKeyPaths = ["/home/mike/.ssh/sops_ed25519"];
+            };
+            # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
+          };
             sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
             sops.secrets.gh_token = {
               path = "${comin_path}";
@@ -50,10 +57,9 @@
             services.comin = {
               enable = true;
               remotes = [{
-                name = "origin";
-                url = "https://github.com/youvegotmoxie/nixos-configuration.git";
-                branches.main.name = "main";
-                auth.access_token_path = "/home/mike/gh_token";
+                name = "local-repo";
+                url = "/etc/nixos";
+                branches.main.name = "master";
               }];
             };
             home-manager.useGlobalPkgs = true;
