@@ -52,6 +52,7 @@
             home-manager.users."mike".imports = [
               # Add sops-nix support for home-manager
               sops-nix.homeManagerModules.sops
+              comin.nixosModules.comin
               # Flatpak NixOS configuration
               nix-flatpak.homeManagerModules.nix-flatpak
               ./users/mike/software/flatpak.nix
