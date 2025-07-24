@@ -50,17 +50,12 @@
             };
             # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
           };
-            sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
-            sops.secrets.gh_token = {
-              path = "${comin_path}";
-            };
             services.comin = {
               enable = true;
               remotes = [{
                 name = "local-repo";
                 url = "/etc/nixos";
                 branches.main.name = "master";
-                auth.access_token_path = "{comin_path}";
                 poller.period = 2;
               }];
             };
