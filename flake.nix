@@ -14,10 +14,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
+    comin,
     nixpkgs,
     home-manager,
     nix-flatpak,
@@ -25,6 +30,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    comin_path = "/backups/snafu-nixos/gh_token";
   in {
     nixosConfigurations = {
       snafu-nixos = nixpkgs.lib.nixosSystem {
@@ -35,7 +41,21 @@
           nix-flatpak.nixosModules.nix-flatpak
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
+          comin.nixosModules.comin
           {
+            sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
+            sops.secrets.gh_token = {
+              path = "${comin_path}";
+            };
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://github.com/youvegotmoxie/nixos-configuration.git";
+                branches.main.name = "main";
+                auth.access_token_path = "/home/mike/gh_token";
+              }];
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             # Move conflicting files out of the way instead of crashing home-manager
