@@ -57,10 +57,10 @@
             services.comin = {
               enable = true;
               remotes = [{
-                name = "local-repo";
-                url = "/etc/nixos";
+                name = "nixos-configuration";
+                url = "https://github.com/youvegotmoxie/nixos-configuration.git";
                 branches.main.name = "master";
-                poller.period = 2;
+                auth.access_token_path = "${comin_path}";
               }];
             };
             home-manager.useGlobalPkgs = true;
