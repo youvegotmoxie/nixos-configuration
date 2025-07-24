@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration
@@ -33,12 +37,16 @@ in {
   };
 
   services.comin = {
-   enable = true;
-   remotes = [{
-     name = "origin";
-     url = "https://github.com/youvegotmoxie/nixos-configuration.git";
-     branches.main.name = "master";
-    auth.access_token_path = "${config.sops.secrets.gh_token.path}";
+    enable = true;
+    remotes = [
+      {
+        name = "origin";
+        url = "https://github.com/youvegotmoxie/nixos-configuration.git";
+        branches.main.name = "master";
+        auth.access_token_path = "${config.sops.secrets.gh_token.path}";
+      }
+    ];
+  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
