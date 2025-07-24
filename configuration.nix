@@ -11,6 +11,7 @@
 
   ## BEGIN Custom modules ##
   # Configure which DE(s) to use
+  # big test!
   gnome.enable = true;
   hypr.enable = false;
   # Configure a separate mount for backups
