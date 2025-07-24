@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration
@@ -28,6 +32,9 @@ in {
   };
 
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
+  sops.secrets.gh_token = {
+    path = "${config.sops.defaultSymlinkPath}/gh_token";
+  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -130,6 +137,18 @@ in {
     enable = true;
     enableBashIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  services.comin = {
+    enable = true;
+    remotes = [
+      {
+        name = "origin";
+        url = "https://github.com/youvegotmoxie/nixos-ansible.git";
+        branches.main.name = "master";
+        auth.access_token_path = "${config.sops.secrets.gh_token.path}";
+      }
+    ];
   };
 
   # Install user packages
