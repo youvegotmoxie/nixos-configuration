@@ -61,6 +61,7 @@
                 url = "https://github.com/youvegotmoxie/nixos-configuration.git";
                 branches.main.name = "master";
                 auth.access_token_path = "${comin_path}";
+                poller.period = 300;
               }];
             };
             home-manager.useGlobalPkgs = true;
