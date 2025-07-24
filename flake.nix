@@ -30,6 +30,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    comin_path = "/backups/snafu-nixos/gh_token";
   in {
     nixosConfigurations = {
       snafu-nixos = nixpkgs.lib.nixosSystem {
@@ -47,7 +48,12 @@
               keyFile = "/home/mike/.config/sops/age/keys.txt";
               sshKeyPaths = ["/home/mike/.ssh/sops_ed25519"];
             };
+            # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
           };
+            sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
+            sops.secrets.gh_token = {
+              path = "${comin_path}";
+            };
             services.comin = {
               enable = true;
               remotes = [{
