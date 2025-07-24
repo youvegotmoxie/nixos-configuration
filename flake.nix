@@ -14,10 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    comin = {
-      url = "github:nlewo/comin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -26,7 +22,6 @@
     home-manager,
     nix-flatpak,
     sops-nix,
-    comin,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -40,7 +35,6 @@
           nix-flatpak.nixosModules.nix-flatpak
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
-          comin.nixosModules.comin
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
