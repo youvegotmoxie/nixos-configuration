@@ -60,6 +60,7 @@
                 name = "local-repo";
                 url = "/etc/nixos";
                 branches.main.name = "master";
+                poller.period = 2;
               }];
             };
             home-manager.useGlobalPkgs = true;
