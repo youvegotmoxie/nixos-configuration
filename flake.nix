@@ -14,7 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     comin = {
       url = "github:nlewo/comin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,12 +21,11 @@
   };
 
   outputs = {
-    comin,
+    self,
     nixpkgs,
     home-manager,
     nix-flatpak,
     sops-nix,
-    self,
     ...
   } @ inputs: let
     system = "x86_64-linux";
