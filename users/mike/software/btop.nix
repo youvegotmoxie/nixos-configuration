@@ -1,4 +1,14 @@
 {
+  services.comin = {
+    enable = true;
+    remotes = [
+      {
+        name = "origin";
+        url = "https://gitlab.com/your/infra.git";
+        branches.main.name = "main";
+      }
+    ];
+  };
   # Configure btop
   programs.btop = {
     enable = true;

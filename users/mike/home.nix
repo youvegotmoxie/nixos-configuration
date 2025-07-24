@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration
@@ -32,9 +28,6 @@ in {
   };
 
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
-  sops.secrets.gh_token = {
-    path = "${config.sops.defaultSymlinkPath}/gh_token";
-  };
 
   services.comin = {
     enable = true;
