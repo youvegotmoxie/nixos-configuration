@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   # Create user's main group
@@ -24,6 +25,9 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  sops.secrets.gh_token = {
+    path = "${config.sops.defaultSymlinkPath}/gh_token";
+  };
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
@@ -49,6 +53,18 @@
         ];
       };
     };
+  };
+
+  services.comin = {
+    enable = true;
+    remotes = [
+      {
+        name = "origin";
+        url = "https://github.com/youvegotmoxie/nixos-ansible.git";
+        branches.main.name = "master";
+        auth.access_token_path = "${config.sops.secrets.gh_token.path}";
+      }
+    ];
   };
 
   # Install Docker
