@@ -26,6 +26,7 @@
     home-manager,
     nix-flatpak,
     sops-nix,
+    comin,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -50,6 +51,8 @@
             home-manager.users."mike".imports = [
               # Add sops-nix support for home-manager
               sops-nix.homeManagerModules.sops
+              # Comin GitOps
+              comin.nixosModules.comin
               # Flatpak NixOS configuration
               nix-flatpak.homeManagerModules.nix-flatpak
               ./users/mike/software/flatpak.nix
