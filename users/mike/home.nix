@@ -43,7 +43,7 @@ in {
         name = "origin";
         url = "https://github.com/youvegotmoxie/nixos-configuration.git";
         branches.main.name = "master";
-        auth.access_token_path = "${config.sops.secrets.gh_token.path}";
+        # auth.access_token_path = "${config.sops.secrets.gh_token.path}";
       }
     ];
   };
