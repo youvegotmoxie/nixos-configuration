@@ -60,6 +60,7 @@
                 name = "local-repo";
                 url = "/etc/nixos";
                 branches.main.name = "master";
+                auth.access_token_path = "{comin_path}";
                 poller.period = 2;
               }];
             };
