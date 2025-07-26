@@ -23,7 +23,6 @@
   outputs = {
     self,
     comin,
-    config,
     nixpkgs,
     home-manager,
     nix-flatpak,
