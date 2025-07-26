@@ -76,23 +76,17 @@ in {
     };
   };
 
-  home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
+  #home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
+  home.file.".config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
-    [servers.efnet]
-    nickname = "moxie"
-    server = "irc.prison.net"
-    use_tls = false
-    channels = ["#efnet"]
-
-
     [buffer.channel.topic]
     enabled = true
 
-    [actions.sidebar]
+    [sidebar]
     buffer = "replace-pane"
 
     [actions.buffer]
