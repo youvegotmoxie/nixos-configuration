@@ -70,7 +70,7 @@ in {
     };
   };
 
-  home.file.".config/halloy/config.toml".text = ''
+  home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
