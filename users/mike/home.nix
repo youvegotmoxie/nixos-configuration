@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
   halloy_passwd_path = "/backups/snafu-nixos/halloy_ident";
 in {
@@ -78,6 +82,7 @@ in {
     # shit
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
+    password = "${builtins.readFile config.sops.secrets.halloy_ident.path}"
     channels = ["#halloy", "#nixos", "#python", "#linux", "#politics"]
 
     [buffer.channel.topic]
