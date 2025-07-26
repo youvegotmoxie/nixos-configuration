@@ -80,7 +80,7 @@ in {
     enabled = true
 
     [actions.sidebar]
-    buffer = "new-pane"
+    buffer = "replace-pane"
     focused_buffer = "close-pane"
 
     [actions.buffer]
