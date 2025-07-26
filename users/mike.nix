@@ -4,6 +4,7 @@
   ...
 }: {
   # Create user's main group
+  # TODO: Make username a global variable
   users.groups."mike" = {};
 
   # Create user
