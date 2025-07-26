@@ -36,7 +36,7 @@ in {
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
   sops.secrets.halloy_ident = {
-    path = "${config.sops.defaultSymlinkPath}/halloy_ident";
+    path = "./halloy_ident";
   };
 
   # Configure home-manager
@@ -82,7 +82,6 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
-    password = ${builtins.readFile ./config.sops.defaultSymlinkPath/halloy_ident};
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
