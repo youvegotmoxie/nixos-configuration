@@ -82,13 +82,10 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
+    password = ${password_p}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
-    [servers.efnet]
-    nickname = "moxie"
-    server = "irc.efnet.org"
-    channels = ["#windows"]
 
     [buffer.channel.topic]
     enabled = true
