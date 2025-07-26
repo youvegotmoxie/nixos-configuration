@@ -23,6 +23,7 @@
   outputs = {
     self,
     comin,
+    config,
     nixpkgs,
     home-manager,
     nix-flatpak,
@@ -31,6 +32,7 @@
   } @ inputs: let
     system = "x86_64-linux";
     comin_path = "/backups/snafu-nixos/gh_token";
+    halloy_path = "/backups/snafu-nixos/halloy_ident";
   in {
     nixosConfigurations = {
       snafu-nixos = nixpkgs.lib.nixosSystem {
@@ -51,6 +53,9 @@
               # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
             };
             sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
+            sops.secrets.halloy_ident = {
+              path = "${halloy_path}";
+            };
             sops.secrets.gh_token = {
               path = "${comin_path}";
             };
@@ -78,9 +83,9 @@
               sops-nix.homeManagerModules.sops
               # Flatpak NixOS configuration
               nix-flatpak.homeManagerModules.nix-flatpak
-              ./users/mike/software/flatpak.nix
+              # ./users/mike/software/flatpak.nix
               # Main home-manager configuration
-              ./users/mike/home.nix
+              # ./users/mike/home.nix
             ];
           }
         ];
