@@ -81,7 +81,7 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
-    password = ${config.sops.secrets.halloy_ident.path}
+    password = ${config.sops.secrets.halloy_ident}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
