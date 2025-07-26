@@ -4,7 +4,6 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-  # halloy_pass = builtins.readFile config.sops.secrets.halloy_ident.path;
 in {
   # Per-application NixOS configuration
   imports = [
