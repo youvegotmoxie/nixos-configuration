@@ -4,7 +4,7 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-  halloy_passwd_path = "/backups/snafu-nixos/halloy_ident";
+  halloy_passwd_path = "./halloy_ident";
 in {
   # Per-application NixOS configuration
   imports = [
