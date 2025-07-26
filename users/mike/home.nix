@@ -4,6 +4,7 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
+  # pass = builtins.readFile config.sops.secrets.halloy_ident.path;
 in {
   # Per-application NixOS configuration
   imports = [
@@ -35,7 +36,7 @@ in {
 
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
-
+  sops.secrets.halloy_ident = {path = "${config.sops.defaultSymlinkPath}/halloy_ident";};
   # Configure home-manager
   programs.home-manager.enable = true;
 
