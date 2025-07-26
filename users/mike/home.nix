@@ -1,6 +1,6 @@
 {
   pkgs,
-  config,
+  lib,
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
@@ -38,8 +38,6 @@ in {
   sops.secrets.halloy_ident = {
     path = "./halloy_ident";
   };
-
-  lib.readFile = "./halloy_ident";
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -84,6 +82,7 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
+    password = ${lib.readFile ./halloy_ident}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
