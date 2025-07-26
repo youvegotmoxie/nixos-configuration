@@ -4,7 +4,6 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-  halloy_passwd_path = "${config.sops.defaultSymlinkPath}/halloy_ident";
 in {
   # Per-application NixOS configuration
   imports = [
@@ -36,7 +35,6 @@ in {
 
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
-  sops.secrets.halloy_ident = {path = "${halloy_passwd_path}";};
   # Configure home-manager
   programs.home-manager.enable = true;
 
@@ -82,7 +80,6 @@ in {
     # shit
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
-    password = "${builtins.readFile config.sops.secrets.halloy_ident.path}"
     channels = ["#halloy", "#nixos", "#python", "#linux", "#politics"]
 
     [buffer.channel.topic]
