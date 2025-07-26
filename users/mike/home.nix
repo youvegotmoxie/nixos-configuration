@@ -79,6 +79,7 @@ in {
 
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
+    # shit
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
     password = ${pass}
