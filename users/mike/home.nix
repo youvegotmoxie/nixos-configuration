@@ -4,7 +4,6 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-  halloyPassword = builtins.readFile ./${config.sops.defaultSymlinkPath}/halloy_ident;
 in {
   # Per-application NixOS configuration
   imports = [
@@ -83,7 +82,7 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
-    password = ${halloyPassword}
+    password = ${builtins.readFile ./config.sops.defaultSymlinkPath/halloy_ident};
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
