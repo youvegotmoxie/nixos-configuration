@@ -76,12 +76,11 @@ in {
     };
   };
 
-  #home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
-  home.file.".config/halloy/config.toml".text = ''
+  home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
-    channels = ["#halloy"]
+    channels = ["#halloy", "#nixos", "#python", "#linux", "#politics"]
 
     [buffer.channel.topic]
     enabled = true
