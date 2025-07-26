@@ -36,7 +36,7 @@ in {
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
   sops.secrets.halloy_ident = {
-    path = "${config.sops.defaultSymlinkPath}/halloy_ident";
+    path = "./halloy_ident";
   };
 
   # Configure home-manager
