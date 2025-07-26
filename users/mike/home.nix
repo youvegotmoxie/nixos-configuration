@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration

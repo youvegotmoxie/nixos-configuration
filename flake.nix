@@ -78,9 +78,9 @@
               sops-nix.homeManagerModules.sops
               # Flatpak NixOS configuration
               nix-flatpak.homeManagerModules.nix-flatpak
-              # ./users/mike/software/flatpak.nix
+              ./users/mike/software/flatpak.nix
               # Main home-manager configuration
-              # ./users/mike/home.nix
+              ./users/mike/home.nix
             ];
           }
         ];
