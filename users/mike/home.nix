@@ -78,6 +78,14 @@ in {
 
     [buffer.channel.topic]
     enabled = true
+
+    [actions.sidebar]
+    buffer = "new-pane"
+    focused_buffer = "close-pane"
+
+    [actions.buffer]
+    click_channel_name = "replace-pane"
+    click_username = "replace-pane"
   '';
 
   # Add public key and rules config
