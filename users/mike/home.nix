@@ -84,7 +84,7 @@ in {
 
     [servers.efnet]
     nickname = "moxie"
-    server = "irc.efnet.org"
+    server = "irc.choopa.net"
     channels = ["#efnet"]
 
 
