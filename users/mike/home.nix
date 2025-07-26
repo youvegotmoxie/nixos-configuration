@@ -78,6 +78,11 @@ in {
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
+    [servers.efnet]
+    nickname = "moxie"
+    server = "irc.efnet.org"
+    channels = ["#windows"]
+
     [buffer.channel.topic]
     enabled = true
 
