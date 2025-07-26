@@ -39,6 +39,8 @@ in {
     path = "./halloy_ident";
   };
 
+  lib.readFile = "./halloy_ident";
+
   # Configure home-manager
   programs.home-manager.enable = true;
 
