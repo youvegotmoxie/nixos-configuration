@@ -1,11 +1,5 @@
-{
-  pkgs,
-  lib,
-  self,
-  ...
-}: let
+{pkgs, ...}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-  password = builtins.readFile "${self}/halloy_ident";
 in {
   # Per-application NixOS configuration
   imports = [
@@ -37,9 +31,6 @@ in {
 
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
-  sops.secrets.halloy_ident = {
-    path = "./halloy_ident";
-  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -84,7 +75,6 @@ in {
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
-    password = ${password}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
