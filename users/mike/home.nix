@@ -84,7 +84,7 @@ in {
 
     [servers.efnet]
     nickname = "moxie"
-    server = "irc.colosolutions.net"
+    server = "irc.prison.net"
     use_tls = false
     channels = ["#efnet"]
 
