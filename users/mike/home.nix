@@ -4,6 +4,7 @@
   ...
 }: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
+  halloyPassword = builtins.readFile ./${config.sops.defaultSymlinkPath}/halloy_ident;
 in {
   # Per-application NixOS configuration
   imports = [
@@ -23,6 +24,7 @@ in {
 
   # Configure sops
   # TODO: Ansible the manual setup portion of this
+  # TODO: Use sops-nix template placeholder feature for seeding secrets
   sops = {
     age = {
       keyFile = "/home/mike/.config/sops/age/keys.txt";
@@ -32,7 +34,11 @@ in {
     defaultSopsFile = ./secrets/global.yaml;
   };
 
+  # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
+  sops.secrets.halloy_ident = {
+    path = "${config.sops.defaultSymlinkPath}/halloy_ident";
+  };
 
   # Configure home-manager
   programs.home-manager.enable = true;
@@ -74,14 +80,10 @@ in {
     };
   };
 
-  sops.secrets.halloy_ident = {
-    path = "${config.sops.defaultSymlinkPath}/halloy_ident";
-  };
-
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
-    password = ${config.sops.secrets.halloy_ident}
+    password = ${halloyPassword}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
