@@ -72,7 +72,7 @@ in {
 
   home.file.".config/halloy/config.toml".text = ''
     [servers.liberachat]
-    nickname = "moxie"
+    nickname = "youvegotmoxie"
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
@@ -81,6 +81,10 @@ in {
 
     [actions.sidebar]
     buffer = "replace-pane"
+
+    [actions.buffer]
+    click_channel_name = "replace-pane"
+    click_username = "replace-pane"
   '';
 
   # Add public key and rules config
