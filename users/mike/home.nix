@@ -85,7 +85,7 @@ in {
     [buffer.channel.topic]
     enabled = true
 
-    [sidebar]
+    [actions.sidebar]
     buffer = "replace-pane"
 
     [actions.buffer]
