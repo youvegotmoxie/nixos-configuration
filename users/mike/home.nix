@@ -81,11 +81,6 @@ in {
 
     [actions.sidebar]
     buffer = "replace-pane"
-    focused_buffer = "close-pane"
-
-    [actions.buffer]
-    click_channel_name = "replace-pane"
-    click_username = "replace-pane"
   '';
 
   # Add public key and rules config
