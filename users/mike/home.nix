@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration
@@ -70,9 +74,14 @@ in {
     };
   };
 
+  sops.secrets.halloy_ident = {
+    path = "${config.sops.defaultSymlinkPath}/halloy_ident";
+  };
+
   home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
     [servers.liberachat]
     nickname = "youvegotmoxie"
+    password = ${config.sops.secrets.halloy_ident.path}
     server = "irc.libera.chat"
     channels = ["#halloy"]
 
