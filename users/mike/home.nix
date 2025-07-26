@@ -81,6 +81,7 @@ in {
     [servers.liberachat]
     nickname = "youvegotmoxie"
     server = "irc.libera.chat"
+    password = ${pass}
     channels = ["#halloy", "#nixos", "#python", "#linux", "#politics"]
 
     [buffer.channel.topic]
