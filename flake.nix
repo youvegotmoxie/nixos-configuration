@@ -27,7 +27,6 @@
     home-manager,
     nix-flatpak,
     sops-nix,
-    config,
     ...
   } @ inputs: let
     system = "x86_64-linux";
