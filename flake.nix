@@ -46,12 +46,12 @@
           {
             sops = {
               age = {
-                keyFile = "/home/mike/.config/sops/age/keys.txt";
-                sshKeyPaths = ["/home/mike/.ssh/sops_ed25519"];
+                keyFile = "/home/${mainUser}/.config/sops/age/keys.txt";
+                sshKeyPaths = ["/home/${mainUser}/.ssh/sops_ed25519"];
               };
               # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
             };
-            sops.defaultSopsFile = ./users/mike/secrets/global.yaml;
+            sops.defaultSopsFile = ./users/${mainUser}/secrets/global.yaml;
             sops.secrets.gh_token = {
               path = "${comin_path}";
             };
@@ -73,9 +73,9 @@
             # Move conflicting files out of the way instead of crashing home-manager
             home-manager.backupFileExtension = "hmback";
             home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users."mike".home.stateVersion = "25.05";
+            home-manager.users."${mainUser}".home.stateVersion = "25.05";
             # Use Home Manager to manage Flatpaks
-            home-manager.users."mike".imports = [
+            home-manager.users."${mainUser}".imports = [
               # Add sops-nix support for home-manager
               sops-nix.homeManagerModules.sops
               # Flatpak NixOS configuration
