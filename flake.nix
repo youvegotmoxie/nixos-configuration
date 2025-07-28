@@ -73,17 +73,19 @@
             # Move conflicting files out of the way instead of crashing home-manager
             home-manager.backupFileExtension = "hmback";
             home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users."mike".home.stateVersion = "25.05";
-            # Use Home Manager to manage Flatpaks
-            home-manager.users."mike".imports = [
-              # Add sops-nix support for home-manager
-              sops-nix.homeManagerModules.sops
-              # Flatpak NixOS configuration
-              nix-flatpak.homeManagerModules.nix-flatpak
-              ./users/${mainUser}/software/flatpak.nix
-              # Main home-manager configuration
-              ./users/${mainUser}/home.nix
-            ];
+            home-manager.users."${mainUser}" = {
+              home.stateVersion = "25.05";
+              imports = [
+                # Add sops-nix support for home-manager
+                sops-nix.homeManagerModules.sops
+                # Flatpak NixOS configuration
+                nix-flatpak.homeManagerModules.nix-flatpak
+                # Use Home Manager to manage Flatpaks
+                ./users/${mainUser}/software/flatpak.nix
+                # Main home-manager configuration
+                ./users/${mainUser}/home.nix
+              ];
+            };
           }
         ];
         specialArgs = {inherit inputs;};
