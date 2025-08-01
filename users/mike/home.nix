@@ -83,6 +83,15 @@ in {
     [buffer.channel.topic]
     enabled = true
 
+    [buffer.channel.nicklist]
+    enabled = false
+
+    [buffer.server_messages.join]
+    enabled = false
+
+    [buffer.server_messages.part]
+    enabled = false
+
     [actions.sidebar]
     buffer = "replace-pane"
 
