@@ -40,9 +40,6 @@
     hostName = "snafu-nixos";
     networkmanager.enable = true;
     enableIPv6 = true;
-    hosts = {
-      "127.0.0.1" = ["authelia.example.com" "public.example.com" "traefik.example.com" "secure.example.com"];
-    };
   };
 
   # Setup firewall
