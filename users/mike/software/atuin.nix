@@ -2,7 +2,7 @@
   programs.atuin = {
     enable = true;
     daemon = {
-      enable = true;
+      enable = false;
       logLevel = "info";
     };
     enableBashIntegration = true;
