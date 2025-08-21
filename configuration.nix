@@ -43,7 +43,7 @@
   };
 
   # Setup firewall
-  networking.nftables.enable = true;
+  networking.nftables.enable = false;
   networking.firewall = {
     enable = true;
     # Tailscale optimization
