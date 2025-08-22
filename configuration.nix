@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Add config file imports
   imports = [
     ./hardware-configuration.nix
@@ -92,6 +96,7 @@
 
   # Globally installed packages
   environment.systemPackages = with pkgs; [
+    inputs.nil.packages.${system}.nil
     lsb-release
     pinentry-curses
     restic

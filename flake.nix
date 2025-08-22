@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nil.url = "github:oxalica/nil";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +29,7 @@
     home-manager,
     nix-flatpak,
     sops-nix,
+    nil,
     ...
   } @ inputs: let
     system = "x86_64-linux";

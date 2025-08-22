@@ -39,17 +39,6 @@
       };
     };
     languages = {
-      # language-server.nix = {
-      #   command = "${pkgs.nil}/bin/nil";
-      #   args = ["--stdio"];
-      # };
-      # language-server.yaml = {
-      #   command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
-      #   args = ["--stdio"];
-      # };
-      # language-server.python = {
-      #   command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
-      # };
       # language-server.bash = {
       #   command = "${pkgs.bash-language-server}/bin/bash-language-server";
       #   args = ["start"];
@@ -92,7 +81,6 @@
     yaml-language-server
     bash-language-server
     shfmt
-    nil
     alejandra
     yamlfmt
     python313Packages.autopep8
