@@ -6,13 +6,14 @@
   # Create user's main group
   # TODO: Make username a global variable
   users.groups."mike" = {};
+  programs.zsh.enable = true;
 
   # Create user
   users.users."mike" = {
     isNormalUser = true;
     group = "mike";
     extraGroups = ["wheel" "users" "qemu-libvirtd" "docker"];
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     home = "/home/mike";
     createHome = true;
     description = "mike";
@@ -58,8 +59,8 @@
     enableOnBoot = true;
     storageDriver = "btrfs";
     rootless = {
-      enable = false;
-      setSocketVariable = false;
+      enable = true;
+      setSocketVariable = true;
     };
   };
 }

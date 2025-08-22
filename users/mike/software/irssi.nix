@@ -11,6 +11,14 @@
           autoConnect = true;
         };
       };
+      iptorrents = {
+        nick = "moxie-_-";
+        server = {
+          address = "irc.iptorrents.com";
+          port = 6697;
+          autoConnect = true;
+        };
+      };
     };
   };
 }
