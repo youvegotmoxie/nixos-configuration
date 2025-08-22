@@ -39,27 +39,25 @@
       };
     };
     languages = {
-      language-server.nix = {
-        command = "${pkgs.nil}/bin/nil";
-        args = ["--stdio"];
-      };
-      language-server.yaml = {
-        command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
-        args = ["--stdio"];
-      };
-      language-server.python = {
-        command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
-      };
-      language-server.bash = {
-        command = "${pkgs.bash-language-server}/bin/bash-language-server";
-        args = ["start"];
-      };
+      # language-server.nix = {
+      #   command = "${pkgs.nil}/bin/nil";
+      #   args = ["--stdio"];
+      # };
+      # language-server.yaml = {
+      #   command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
+      #   args = ["--stdio"];
+      # };
+      # language-server.python = {
+      #   command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
+      # };
+      # language-server.bash = {
+      #   command = "${pkgs.bash-language-server}/bin/bash-language-server";
+      #   args = ["start"];
+      # };
       language = [
         {
           name = "yaml";
-          file-types = ["yaml"];
           auto-format = true;
-          language-servers = ["yaml-language-server"];
           formatter = {
             command = "${pkgs.yamlfmt}/bin/yamlfmt";
             args = ["-"];
@@ -67,13 +65,11 @@
         }
         {
           name = "nix";
-          file-types = ["nix"];
           auto-format = true;
           formatter = {command = "${pkgs.alejandra}/bin/alejandra";};
         }
         {
           name = "bash";
-          file-types = ["bash" "sh" "zsh"];
           auto-format = true;
           formatter = {
             command = "${pkgs.shfmt}/bin/shfmt";
@@ -82,7 +78,6 @@
         }
         {
           name = "python";
-          file-types = ["py"];
           auto-format = true;
           formatter = {
             command = "${pkgs.python313Packages.autopep8}/bin/autopep8";
