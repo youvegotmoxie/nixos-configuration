@@ -54,8 +54,6 @@ in {
       "sed" = "gsed";
     };
     initContent = lib.mkOrder 1500 ''
-      eval "$(ssh-agent -s)"
-      ssh-add ${config.home.homeDirectory}/.ssh/id_rsa
       export GH_TOKEN="$(cat ${config.sops.secrets.gh_token.path})"
       # Workaround for Atuin
       source "${zsh-helix-mode}/zsh-helix-mode.plugin.zsh"
@@ -63,7 +61,8 @@ in {
       bindkey -M hxnor '^r' atuin-up-search-vicmd
     '';
     sessionVariables = {
-      "TERM" = "xterm-256color";
+      TERM = "xterm-256color";
+      SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
     };
   };
 }

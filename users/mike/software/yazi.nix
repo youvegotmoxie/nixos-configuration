@@ -11,7 +11,6 @@
             desc = "Open shell here";
           }
         ];
-        show_hidden = true;
         sort_by = "alphabetical";
         sort_sensitive = true;
         sort_dir_first = true;

@@ -6,14 +6,18 @@
     settings = {
       theme = "tokyonight";
       editor = {
+        true-color = true;
         auto-format = true;
         trim-final-newlines = true;
+        trim-trailing-whitespace = true;
+        end-of-line-diagnostics = "hint";
         indent-guides = {
           render = true;
           character = "┊";
         };
         lsp = {
           display-messages = true;
+          display-inlay-hints = true;
         };
         cursor-shape = {
           insert = "bar";
@@ -22,6 +26,9 @@
         };
         file-picker = {
           hidden = false;
+        };
+        inline-diagnostics = {
+          cursor-line = "error";
         };
       };
       keys.normal = {
@@ -62,9 +69,14 @@
           auto-format = true;
           formatter = {
             command = "${pkgs.shfmt}/bin/shfmt";
-            args = ["-"];
+            args = ["-i" "4"];
+            indent = {
+              tab-width = 4;
+              unit = "    ";
+            };
           };
         }
+
         {
           name = "python";
           auto-format = true;
