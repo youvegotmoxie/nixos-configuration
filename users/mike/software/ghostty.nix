@@ -2,7 +2,7 @@
   # Configure Ghostty
   programs.ghostty = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
     installBatSyntax = true;
     installVimSyntax = true;
     settings = {
@@ -18,6 +18,7 @@
       mouse-hide-while-typing = true;
       confirm-close-surface = false;
       quit-after-last-window-closed = true;
+      keybind = [ "global:alt+grave_accent=toggle_quick_terminal" ];
     };
   };
 }

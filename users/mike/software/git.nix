@@ -1,5 +1,18 @@
 {
   # Configure Git for the user
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        showNumstatInFilesView = true;
+        nerdFontsVersion = "3";
+      };
+      git.paging = {
+        pager = "delta --dark --paging=never --max-line-length=0";
+        useConfig = false;
+      };
+    };
+  };
   programs.git = {
     enable = true;
     userName = "MikeB";
@@ -8,7 +21,7 @@
     extraConfig = {
       core = {
         pager = "delta --pager=never --max-line-length=0";
-        editor = "nvim";
+        editor = "hx";
       };
       init = {
         defaultBranch = "master";

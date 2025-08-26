@@ -6,6 +6,5 @@
     "com.discordapp.Discord"
     "com.github.tchx84.Flatseal"
     "com.todoist.Todoist"
-    "org.squidowl.halloy"
   ];
 }

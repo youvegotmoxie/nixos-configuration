@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
   # Add config file imports
   imports = [
     ./hardware-configuration.nix
@@ -60,8 +65,14 @@
       }
     ];
     # Jellyfin
-    allowedTCPPorts = [8096 8920];
-    allowedUDPPorts = [7359 1900];
+    allowedTCPPorts = [
+      8096
+      8920
+    ];
+    allowedUDPPorts = [
+      7359
+      1900
+    ];
   };
 
   # TZ and localization settings
@@ -92,6 +103,7 @@
 
   # Globally installed packages
   environment.systemPackages = with pkgs; [
+    inputs.nil.packages.${system}.nil
     lsb-release
     pinentry-curses
     restic
@@ -149,7 +161,10 @@
   # Internal NixOS confguration
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     allowed-users = [
       "@wheel"
     ];

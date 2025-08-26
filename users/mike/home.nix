@@ -1,11 +1,20 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}:
+let
+  blame-line-pretty = pkgs.writeShellScriptBin "blame-line-pretty" (
+    builtins.readFile ../../shared/scripts/blame-line-pretty.sh
+  );
+  git-hunk = pkgs.writeShellScriptBin "git-hunk" (builtins.readFile ../../shared/scripts/git-hunk.sh);
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-in {
+in
+{
   # Per-application NixOS configuration
   # Flatpak is imported in flake.nix
   imports = [
     ./software/atuin.nix
-    ./software/bash.nix
     ./software/btop.nix
     ./software/ghostty.nix
     ./software/git.nix
@@ -13,6 +22,9 @@ in {
     ./software/irssi.nix
     ./software/starship.nix
     ./software/zoxide.nix
+    ./software/helix.nix
+    ./software/yazi.nix
+    ./software/zsh.nix
   ];
 
   # Set home defaults
@@ -25,15 +37,20 @@ in {
   # TODO: Use sops-nix template placeholder feature for seeding secrets
   sops = {
     age = {
-      keyFile = "/home/mike/.config/sops/age/keys.txt";
-      sshKeyPaths = ["/home/mike/.ssh/sops_ed25519"];
+      keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+      sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/sops_ed25519" ];
     };
     # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
     defaultSopsFile = ./secrets/global.yaml;
   };
 
   # Setup secrets
-  sops.secrets.restic_password = {path = "${restic_passwd_path}";};
+  sops.secrets.restic_password = {
+    path = "${restic_passwd_path}";
+  };
+  sops.secrets.libera_nick_youvegotmoxie = {
+    path = "${config.home.homeDirectory}/halloy_libera_youvegotmoxie";
+  };
   # Configure home-manager
   programs.home-manager.enable = true;
 
@@ -43,14 +60,14 @@ in {
     "etc_nixos" = {
       initialize = true;
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = ["--keep-daily 7"];
-      paths = ["/etc/nixos"];
+      pruneOpts = [ "--keep-daily 7" ];
+      paths = [ "/etc/nixos" ];
       repository = "/backups/snafu-nixos/etc_nixos";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "10m";
       };
-      extraBackupArgs = ["--cleanup-cache"];
+      extraBackupArgs = [ "--cleanup-cache" ];
     };
     "home_mike" = {
       initialize = true;
@@ -63,14 +80,18 @@ in {
         "/home/mike/.local/share/docker"
       ];
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = ["--keep-daily 3" "--keep-weekly 2" "--keep-monthly 1"];
-      paths = ["/home/mike"];
+      pruneOpts = [
+        "--keep-daily 3"
+        "--keep-weekly 2"
+        "--keep-monthly 1"
+      ];
+      paths = [ "/home/mike" ];
       repository = "/backups/snafu-nixos/mike";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
       };
-      extraBackupArgs = ["--cleanup-cache"];
+      extraBackupArgs = [ "--cleanup-cache" ];
     };
   };
 
@@ -118,47 +139,53 @@ in {
   '';
 
   # Do this instead of setting up Chezmoi
-  home.file.".pre-commit-config.yaml".text = ''
-    # See https://pre-commit.com for more information
-    # See https://pre-commit.com/hooks.html for more hooks
-    repos:
-    - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v5.0.0
-      hooks:
-      - id: trailing-whitespace
-      - id: check-added-large-files
-      - id: end-of-file-fixer
-    - repo: https://github.com/hhatto/autopep8
-      rev: 'v2.3.2'
-      hooks:
-      - id: autopep8
-    - repo: https://github.com/gitleaks/gitleaks.git
-      rev: 'v8.28.0'
-      hooks:
-      - id: gitleaks
-    - repo: https://github.com/koalaman/shellcheck-precommit
-      rev: v0.10.0
-      hooks:
-      - id: shellcheck
-        exclude: .*jenkins-slave$
-    - repo: https://github.com/hadolint/hadolint
-      rev: v2.13.1-beta
-      hooks:
-      - id: hadolint-docker
-        args:
-        - --ignore=DL3015 # Ignore not using --no-install-recommends with apt
-        - --ignore=DL3008 # Ignore not pinning all software package versions (apt-get)
-        - --ignore=DL3018 # Ignore not pinning all software package versions (apk)
-        - --ignore=SC1091 # Ignore missing shellcheck mock files
-    - repo: https://github.com/gruntwork-io/pre-commit
-      rev: 'v0.1.30'
-      hooks:
-      - id: terraform-validate'';
+  home = {
+    file = {
+      ".zsh.d/func.zsh".source = ./dots/func.zsh;
+      ".shell.nix".source = ./dots/shell.nix;
+      ".pre-commit-config.yaml".text = ''
+        # See https://pre-commit.com for more information
+        # See https://pre-commit.com/hooks.html for more hooks
+        repos:
+        - repo: https://github.com/pre-commit/pre-commit-hooks
+          rev: v5.0.0
+          hooks:
+          - id: trailing-whitespace
+          - id: check-added-large-files
+          - id: end-of-file-fixer
+        - repo: https://github.com/hhatto/autopep8
+          rev: 'v2.3.2'
+          hooks:
+          - id: autopep8
+        - repo: https://github.com/gitleaks/gitleaks.git
+          rev: 'v8.28.0'
+          hooks:
+          - id: gitleaks
+        - repo: https://github.com/koalaman/shellcheck-precommit
+          rev: v0.10.0
+          hooks:
+          - id: shellcheck
+            exclude: .*jenkins-slave$
+        - repo: https://github.com/hadolint/hadolint
+          rev: v2.13.1-beta
+          hooks:
+          - id: hadolint-docker
+            args:
+            - --ignore=DL3015 # Ignore not using --no-install-recommends with apt
+            - --ignore=DL3008 # Ignore not pinning all software package versions (apt-get)
+            - --ignore=DL3018 # Ignore not pinning all software package versions (apk)
+            - --ignore=SC1091 # Ignore missing shellcheck mock files
+        - repo: https://github.com/gruntwork-io/pre-commit
+          rev: 'v0.1.30'
+          hooks:
+          - id: terraform-validate'';
+    };
+  };
 
   # Set EDITOR to nvim
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
   };
 
   # Setup direnv
@@ -167,6 +194,9 @@ in {
     enableBashIntegration = true;
     nix-direnv.enable = true;
   };
+
+  services.tldr-update.enable = true;
+  services.tldr-update.period = "Mon *-*-* 00:00:00";
 
   # Install user packages
   home.packages = with pkgs; [
@@ -195,6 +225,7 @@ in {
     python313
     ripgrep
     starship
+    tldr
     tree
     ugrep
     unzip
@@ -202,5 +233,8 @@ in {
     yq
     zoxide
     gnome-boxes
+    # Shell scripts
+    blame-line-pretty
+    git-hunk
   ];
 }
