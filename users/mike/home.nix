@@ -2,15 +2,13 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   blame-line-pretty = pkgs.writeShellScriptBin "blame-line-pretty" (
     builtins.readFile ../../shared/scripts/blame-line-pretty.sh
   );
   git-hunk = pkgs.writeShellScriptBin "git-hunk" (builtins.readFile ../../shared/scripts/git-hunk.sh);
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-in
-{
+in {
   # Per-application NixOS configuration
   # Flatpak is imported in flake.nix
   imports = [
@@ -32,13 +30,22 @@ in
   home.username = "mike";
   home.homeDirectory = "/home/mike";
 
+  # Configure Kora icons
+  # TODO: Flesh out all options
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.kora-icon-theme;
+      name = "kora";
+    };
+  };
+
   # Configure sops
-  # TODO: Ansible the manual setup portion of this
   # TODO: Use sops-nix template placeholder feature for seeding secrets
   sops = {
     age = {
       keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-      sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/sops_ed25519" ];
+      sshKeyPaths = ["${config.home.homeDirectory}/.ssh/sops_ed25519"];
     };
     # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
     defaultSopsFile = ./secrets/global.yaml;
@@ -60,14 +67,14 @@ in
     "etc_nixos" = {
       initialize = true;
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = [ "--keep-daily 7" ];
-      paths = [ "/etc/nixos" ];
+      pruneOpts = ["--keep-daily 7"];
+      paths = ["/etc/nixos"];
       repository = "/backups/snafu-nixos/etc_nixos";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "10m";
       };
-      extraBackupArgs = [ "--cleanup-cache" ];
+      extraBackupArgs = ["--cleanup-cache"];
     };
     "home_mike" = {
       initialize = true;
@@ -85,13 +92,13 @@ in
         "--keep-weekly 2"
         "--keep-monthly 1"
       ];
-      paths = [ "/home/mike" ];
+      paths = ["/home/mike"];
       repository = "/backups/snafu-nixos/mike";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
       };
-      extraBackupArgs = [ "--cleanup-cache" ];
+      extraBackupArgs = ["--cleanup-cache"];
     };
   };
 
