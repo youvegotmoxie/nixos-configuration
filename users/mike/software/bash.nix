@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Configure bash
   sops.secrets.gh_token = {
     path = "${config.sops.defaultSymlinkPath}/gh_token";

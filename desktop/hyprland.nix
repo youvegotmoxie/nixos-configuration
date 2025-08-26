@@ -4,9 +4,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.hypr;
-in {
+in
+{
   options.hypr.enable = lib.mkOption {
     default = false;
     type = lib.types.bool;

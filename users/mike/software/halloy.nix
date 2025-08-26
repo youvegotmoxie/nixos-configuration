@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Install and configure Halloy
   # Using the Flatpak for now since it's newer
   programs.halloy = {
@@ -31,12 +32,24 @@
         nickname = "youvegotmoxie";
         server = "irc.libera.chat";
         nick_password_file = "${config.home.homeDirectory}/halloy_libera_youvegotmoxie";
-        channels = ["#nixos" "#python" "#linux" "##politics" "#networking" "##programming" "#hardware" "##chat" "#docker" "#helix" "#kubernetes"];
+        channels = [
+          "#nixos"
+          "#python"
+          "#linux"
+          "##politics"
+          "#networking"
+          "##programming"
+          "#hardware"
+          "##chat"
+          "#docker"
+          "#helix"
+          "#kubernetes"
+        ];
       };
       servers.iptorrents = {
         nickname = "moxie";
         server = "irc.iptorrents.com";
-        channels = ["#iptorrents"];
+        channels = [ "#iptorrents" ];
         dangerously_accept_invalid_certs = true;
       };
     };

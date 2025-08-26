@@ -18,7 +18,7 @@
       mouse-hide-while-typing = true;
       confirm-close-surface = false;
       quit-after-last-window-closed = true;
-      keybind = ["global:alt+grave_accent=toggle_quick_terminal"];
+      keybind = [ "global:alt+grave_accent=toggle_quick_terminal" ];
     };
   };
 }

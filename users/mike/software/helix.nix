@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Set EDITOR to helix
   programs.helix = {
     enable = true;
@@ -60,20 +61,25 @@
           auto-format = true;
           formatter = {
             command = "${pkgs.yamlfmt}/bin/yamlfmt";
-            args = ["-"];
+            args = [ "-" ];
           };
         }
         {
           name = "nix";
           auto-format = true;
-          formatter = {command = "${pkgs.alejandra}/bin/alejandra";};
+          formatter = {
+            command = "${pkgs.alejandra}/bin/alejandra";
+          };
         }
         {
           name = "bash";
           auto-format = true;
           formatter = {
             command = "${pkgs.shfmt}/bin/shfmt";
-            args = ["-i" "4"];
+            args = [
+              "-i"
+              "4"
+            ];
             indent = {
               tab-width = 4;
               unit = "    ";
@@ -86,7 +92,7 @@
           auto-format = true;
           formatter = {
             command = "${pkgs.python313Packages.autopep8}/bin/autopep8";
-            args = ["-"];
+            args = [ "-" ];
           };
         }
       ];

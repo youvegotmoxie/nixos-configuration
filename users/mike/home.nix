@@ -2,11 +2,15 @@
   pkgs,
   config,
   ...
-}: let
-  blame-line-pretty = pkgs.writeShellScriptBin "blame-line-pretty" (builtins.readFile ../../shared/scripts/blame-line-pretty.sh);
+}:
+let
+  blame-line-pretty = pkgs.writeShellScriptBin "blame-line-pretty" (
+    builtins.readFile ../../shared/scripts/blame-line-pretty.sh
+  );
   git-hunk = pkgs.writeShellScriptBin "git-hunk" (builtins.readFile ../../shared/scripts/git-hunk.sh);
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
-in {
+in
+{
   # Per-application NixOS configuration
   # Flatpak is imported in flake.nix
   imports = [
@@ -34,14 +38,16 @@ in {
   sops = {
     age = {
       keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-      sshKeyPaths = ["${config.home.homeDirectory}/.ssh/sops_ed25519"];
+      sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/sops_ed25519" ];
     };
     # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
     defaultSopsFile = ./secrets/global.yaml;
   };
 
   # Setup secrets
-  sops.secrets.restic_password = {path = "${restic_passwd_path}";};
+  sops.secrets.restic_password = {
+    path = "${restic_passwd_path}";
+  };
   sops.secrets.libera_nick_youvegotmoxie = {
     path = "${config.home.homeDirectory}/halloy_libera_youvegotmoxie";
   };
@@ -54,14 +60,14 @@ in {
     "etc_nixos" = {
       initialize = true;
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = ["--keep-daily 7"];
-      paths = ["/etc/nixos"];
+      pruneOpts = [ "--keep-daily 7" ];
+      paths = [ "/etc/nixos" ];
       repository = "/backups/snafu-nixos/etc_nixos";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "10m";
       };
-      extraBackupArgs = ["--cleanup-cache"];
+      extraBackupArgs = [ "--cleanup-cache" ];
     };
     "home_mike" = {
       initialize = true;
@@ -74,14 +80,18 @@ in {
         "/home/mike/.local/share/docker"
       ];
       passwordFile = "${restic_passwd_path}";
-      pruneOpts = ["--keep-daily 3" "--keep-weekly 2" "--keep-monthly 1"];
-      paths = ["/home/mike"];
+      pruneOpts = [
+        "--keep-daily 3"
+        "--keep-weekly 2"
+        "--keep-monthly 1"
+      ];
+      paths = [ "/home/mike" ];
       repository = "/backups/snafu-nixos/mike";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
       };
-      extraBackupArgs = ["--cleanup-cache"];
+      extraBackupArgs = [ "--cleanup-cache" ];
     };
   };
 

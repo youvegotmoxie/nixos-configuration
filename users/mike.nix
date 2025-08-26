@@ -2,17 +2,23 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   # Create user's main group
   # TODO: Make username a global variable
-  users.groups."mike" = {};
+  users.groups."mike" = { };
   programs.zsh.enable = true;
 
   # Create user
   users.users."mike" = {
     isNormalUser = true;
     group = "mike";
-    extraGroups = ["wheel" "users" "qemu-libvirtd" "docker"];
+    extraGroups = [
+      "wheel"
+      "users"
+      "qemu-libvirtd"
+      "docker"
+    ];
     shell = pkgs.zsh;
     home = "/home/mike";
     createHome = true;
@@ -26,7 +32,8 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
       "steam-original"
