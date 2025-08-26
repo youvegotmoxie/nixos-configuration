@@ -57,6 +57,7 @@ in {
       export GH_TOKEN="$(cat ${config.sops.secrets.gh_token.path})"
       # Workaround for Atuin
       source "${zsh-helix-mode}/zsh-helix-mode.plugin.zsh"
+      source "${config.home.homeDirectory}/.zsh.d/func.zsh"
       bindkey -M hxins '^r' atuin-up-search-vicmd
       bindkey -M hxnor '^r' atuin-up-search-vicmd
     '';
