@@ -37,6 +37,7 @@
         nickname = "moxie";
         server = "irc.iptorrents.com";
         channels = ["#iptorrents"];
+        dangerously_accept_invalid_certs = true;
       };
     };
   };
