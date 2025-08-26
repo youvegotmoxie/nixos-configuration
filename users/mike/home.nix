@@ -3,6 +3,8 @@
   config,
   ...
 }: let
+  blame-line-pretty = pkgs.writeShellScriptBin "blame-line-pretty" (builtins.readFile ../../shared/scripts/blame-line-pretty.sh);
+  git-hunk = pkgs.writeShellScriptBin "git-hunk" (builtins.readFile ../../shared/scripts/git-hunk.sh);
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
 in {
   # Per-application NixOS configuration
@@ -40,6 +42,9 @@ in {
 
   # Setup secrets
   sops.secrets.restic_password = {path = "${restic_passwd_path}";};
+  sops.secrets.libera_nick_youvegotmoxie = {
+    path = "${config.home.homeDirectory}/halloy_libera_youvegotmoxie";
+  };
   # Configure home-manager
   programs.home-manager.enable = true;
 
@@ -218,5 +223,8 @@ in {
     yq
     zoxide
     gnome-boxes
+    # Shell scripts
+    blame-line-pretty
+    git-hunk
   ];
 }

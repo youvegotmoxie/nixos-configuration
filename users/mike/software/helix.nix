@@ -32,6 +32,10 @@
         };
       };
       keys.normal = {
+        space = {
+          B.b = ":run-shell-command blame-line-pretty %{buffer_name} %{cursor_line}";
+          B.h = ":run-shell-command git-hunk %{buffer_name} %{cursor_line} 3";
+        };
         C-x = [
           ":buffer-close!"
         ];
