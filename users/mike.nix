@@ -2,11 +2,10 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   # Create user's main group
   # TODO: Make username a global variable
-  users.groups."mike" = { };
+  users.groups."mike" = {};
   programs.zsh.enable = true;
 
   # Create user
@@ -32,8 +31,7 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
       "steam-original"
