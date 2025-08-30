@@ -231,6 +231,7 @@ in {
     nodejs
     python313
     ripgrep
+    screen
     starship
     tldr
     tree
