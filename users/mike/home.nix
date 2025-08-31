@@ -222,6 +222,7 @@ in {
     ghostty
     git
     go
+    imagemagick
     jdk21_headless
     jq
     lazydocker
