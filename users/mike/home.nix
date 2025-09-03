@@ -216,6 +216,7 @@ in {
     cargo
     clang
     delta
+    discord
     eza
     fd
     gh
@@ -235,6 +236,7 @@ in {
     screen
     starship
     tldr
+    todoist-electron
     tree
     ugrep
     unzip
