@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -27,7 +26,6 @@
     comin,
     nixpkgs,
     home-manager,
-    nix-flatpak,
     sops-nix,
     nil,
     ...
@@ -42,7 +40,6 @@
         modules = [
           # Import the main module
           ./configuration.nix
-          nix-flatpak.nixosModules.nix-flatpak
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           comin.nixosModules.comin
@@ -81,10 +78,6 @@
               imports = [
                 # Add sops-nix support for home-manager
                 sops-nix.homeManagerModules.sops
-                # Flatpak NixOS configuration
-                nix-flatpak.homeManagerModules.nix-flatpak
-                # Use Home Manager to manage Flatpaks
-                ./users/${mainUser}/software/flatpak.nix
                 # Main home-manager configuration
                 ./users/${mainUser}/home.nix
               ];
