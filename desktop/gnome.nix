@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.gnome;
-in {
+in
+{
   options.gnome.enable = lib.mkOption {
     default = true;
     type = lib.types.bool;

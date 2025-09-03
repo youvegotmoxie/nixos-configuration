@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Install and configure Halloy
   programs.halloy = {
     enable = true;
@@ -45,7 +46,7 @@
       servers.iptorrents = {
         nickname = "moxie";
         server = "irc.iptorrents.com";
-        channels = ["#iptorrents"];
+        channels = [ "#iptorrents" ];
         dangerously_accept_invalid_certs = true;
       };
     };
