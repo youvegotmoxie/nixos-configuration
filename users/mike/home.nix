@@ -191,7 +191,7 @@ in {
 
   # Set EDITOR to nvim
   programs.neovim = {
-    enable = true;
+    enable = false;
     defaultEditor = false;
   };
 
