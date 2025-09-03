@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   # Add custom plugin for helix zsh bindings
   # https://github.com/Multirious/zsh-helix-mode
   zsh-helix-mode = pkgs.fetchFromGitHub {
@@ -12,7 +13,8 @@
     rev = "2b4a40aa8956d345d8554f0c3ebbdc2fee619b9a";
     sha256 = "sha256-0/5B4SRHNo06ya0qNGy15yyOE6iZv7t4CLlO2Aody7g=";
   };
-in {
+in
+{
   sops.secrets.gh_token = {
     path = "${config.sops.defaultSymlinkPath}/gh_token";
   };

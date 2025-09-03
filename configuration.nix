@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # Add config file imports
   imports = [
     ./hardware-configuration.nix
