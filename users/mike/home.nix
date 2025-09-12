@@ -228,7 +228,6 @@ in {
     jq
     lazydocker
     lazygit
-    mailspring
     networkmanagerapplet
     nh
     nodejs

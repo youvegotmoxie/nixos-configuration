@@ -16,6 +16,8 @@ in {
 
     environment.systemPackages = with pkgs; [
       gjs
+      gvfs
+      gnome.gvfs
       gnomeExtensions.blur-my-shell
       gnomeExtensions.bluetooth-file-sender
       gnomeExtensions.gsconnect
@@ -35,7 +37,7 @@ in {
       gnome-terminal
       gnome-text-editor
       gnome-music
-      gnome-contacts
+      # gnome-contacts
       epiphany
       geary
       evince
