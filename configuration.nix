@@ -139,6 +139,9 @@
   nixpkgs.config = {
     rocmSupport = true;
     allowUnfree = true;
+    permittedInsecurePackages = [
+      "libsoup-2.74.3"
+    ];
   };
 
   # Allow wheel group passwordless sudo

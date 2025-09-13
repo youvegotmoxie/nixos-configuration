@@ -37,7 +37,6 @@ in {
       gnome-terminal
       gnome-text-editor
       gnome-music
-      # gnome-contacts
       epiphany
       geary
       evince
@@ -45,6 +44,17 @@ in {
       cheese
       simple-scan
       xdg-desktop-portal-gtk
+    ];
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        gnome = prev.gnome.overrideScope (gfinal: gprev: {
+          gvfs = gprev.gvfs.override {
+            googleSupport = true;
+            gnomeSupport = true;
+          };
+        });
+      })
     ];
 
     # Enable required services

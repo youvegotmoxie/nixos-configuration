@@ -8,6 +8,14 @@
   );
   git-hunk = pkgs.writeShellScriptBin "git-hunk" (builtins.readFile ../../shared/scripts/git-hunk.sh);
   restic_passwd_path = "/backups/snafu-nixos/password.txt";
+  androidmessages = pkgs.appimageTools.wrapType2 rec {
+    pname = "Android-Messages-Desktop";
+    version = "v5.7.1";
+    src = pkgs.fetchurl {
+      url = "https://github.com/OrangeDrangon/android-messages-desktop/releases/download/${version}/Android-Messages-${version}-linux-x86_64.AppImage";
+      hash = "sha256-WmFKJlkKlIpZY62qFc2hQq3jpQJwreEuweYN4RRgGis=";
+    };
+  };
 in {
   # Per-application NixOS configuration
   # Flatpak is imported in flake.nix
@@ -29,6 +37,16 @@ in {
   # TODO: Pull in the ${mainUser} config from flake.nix
   home.username = "mike";
   home.homeDirectory = "/home/mike";
+  xdg.desktopEntries = {
+    androidMessages = {
+      name = "Android Messages Desktop";
+      genericName = "Messages";
+      exec = "Android-Messages-Desktop";
+      terminal = false;
+      categories = ["Network" "Chat"];
+      icon = "google-chrome";
+    };
+  };
 
   # Configure Kora icons
   # TODO: Flesh out all options
@@ -108,7 +126,7 @@ in {
     [servers.liberachat]
     nickname = "moxie-_-"
     server = "irc.libera.chat"
-    channels = ["#nixos", "#python", "#linux", "##politics", "#networking", "##programming", "#hardware", "##chat", "#docker", "#neovim", "#kubernetes"]
+    channels = ["#nixos", "#python", "#linux", "##politics", "#networking", "##programming", "#hardware"]
 
     [buffer.channel.topic]
     enabled = true
@@ -236,7 +254,6 @@ in {
     screen
     starship
     tldr
-    todoist-electron
     tree
     ugrep
     unzip
@@ -247,5 +264,6 @@ in {
     # Shell scripts
     blame-line-pretty
     git-hunk
+    androidmessages
   ];
 }
