@@ -44,7 +44,10 @@ in {
       exec = "Android-Messages-Desktop";
       terminal = false;
       categories = ["Network" "Chat"];
-      icon = "google-chrome";
+      icon = "${pkgs.fetchurl {
+        url = "https://github.com/OrangeDrangon/android-messages-desktop/blob/13e1259bbf387825b107c5789253cc2f092ca15f/assets/android_messages_desktop_icon.png?raw=true";
+        sha256 = "sha256-RwOyc/i3cuHy8iIohF8Y6CXJUOhUrHjKzqBsIs4U+cE=";
+      }}";
     };
   };
 
