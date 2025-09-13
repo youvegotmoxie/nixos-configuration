@@ -30,6 +30,8 @@ in {
       chrome-gnome-shell
       gnome-shell-extensions
       kora-icon-theme
+      insync
+      insync-nautilus
     ];
 
     environment.gnome.excludePackages = with pkgs; [
