@@ -6,7 +6,7 @@
     installBatSyntax = true;
     installVimSyntax = true;
     settings = {
-      theme = "tokyonight";
+      theme = "TokyoNight";
       font-size = 10;
       cursor-style-blink = false;
       cursor-style = "";
@@ -18,7 +18,7 @@
       mouse-hide-while-typing = true;
       confirm-close-surface = false;
       quit-after-last-window-closed = true;
-      keybind = [ "global:alt+grave_accent=toggle_quick_terminal" ];
+      keybind = ["global:alt+grave_accent=toggle_quick_terminal"];
     };
   };
 }

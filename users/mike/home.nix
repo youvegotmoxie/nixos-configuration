@@ -31,6 +31,7 @@ in {
     ./software/helix.nix
     ./software/yazi.nix
     ./software/zsh.nix
+    ./software/rclone.nix
   ];
 
   # Set home defaults

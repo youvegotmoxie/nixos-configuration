@@ -2,7 +2,7 @@
   description = "snafu-nixos system flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable-small";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     sops-nix = {
