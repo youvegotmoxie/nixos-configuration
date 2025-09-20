@@ -9,7 +9,6 @@
     ./users/mike.nix
     ./system/filesystems.nix
     ./system/backup.nix
-    ./system/lix.nix
     ./desktop/gnome.nix
     ./desktop/hyprland.nix
   ];
@@ -163,7 +162,7 @@
 
   # Internal NixOS confguration
   nix = {
-    # package = pkgs.nix;
+    package = pkgs.nix;
     optimise.automatic = true;
     gc = {
       automatic = true;

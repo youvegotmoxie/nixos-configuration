@@ -220,9 +220,8 @@ in {
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
-    # TODO: Make this work with Lix
     nix-direnv = {
-      enable = false;
+      enable = true;
     };
   };
 
