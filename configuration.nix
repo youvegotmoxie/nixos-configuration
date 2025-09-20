@@ -24,11 +24,11 @@
   # Bootloader and kernel configuration
   boot = {
     tmp.useZram = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     loader = {
       systemd-boot = {
         enable = true;
-        configurationLimit = 3;
+        configurationLimit = 5;
         memtest86.enable = true;
       };
       efi.canTouchEfiVariables = true;
@@ -151,6 +151,7 @@
   hardware = {
     bluetooth.enable = true;
     xone.enable = true;
+    steam-hardware.enable = true;
   };
 
   # Configure zram swap
@@ -162,14 +163,25 @@
   # Let Nix manage Nix
   nix.package = pkgs.nix;
   # Internal NixOS confguration
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    allowed-users = [
-      "@wheel"
-    ];
+  nix = {
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 60d";
+    };
+    extraOptions = ''
+      min-free = ${toString (100 * 1024 * 1024)}
+      max-free = ${toString (1024 * 1024 * 1024)}
+    '';
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      allowed-users = [
+        "@wheel"
+      ];
+    };
   };
 }
