@@ -9,7 +9,7 @@
     ./users/mike.nix
     ./system/filesystems.nix
     ./system/backup.nix
-    # ./system/lix.nix
+    ./system/lix.nix
     ./desktop/gnome.nix
     ./desktop/hyprland.nix
   ];
@@ -25,7 +25,7 @@
   # Bootloader and kernel configuration
   boot = {
     tmp.useZram = true;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot = {
         enable = true;
@@ -163,7 +163,7 @@
 
   # Internal NixOS confguration
   nix = {
-    package = pkgs.nix;
+    # package = pkgs.nix;
     optimise.automatic = true;
     gc = {
       automatic = true;

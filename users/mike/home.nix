@@ -124,52 +124,51 @@ in {
     };
   };
 
-  home.file.".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
-    theme = "tokyo-night-storm"
-
-    [servers.liberachat]
-    nickname = "moxie-_-"
-    server = "irc.libera.chat"
-    channels = ["#nixos", "#python", "#linux", "##politics", "#networking", "##programming", "#hardware"]
-
-    [buffer.channel.topic]
-    enabled = true
-
-    [buffer.channel.nicklist]
-    enabled = false
-
-    [buffer.server_messages.join]
-    enabled = false
-
-    [buffer.server_messages.part]
-    enabled = false
-
-    [buffer.server_messages.quit]
-    enabled = false
-
-    [actions.sidebar]
-    buffer = "replace-pane"
-
-    [actions.buffer]
-    click_channel_name = "replace-pane"
-    click_username = "replace-pane"
-  '';
-
-  # Add public key and rules config
-  home.file.".sops.yaml".text = ''
-    keys:
-      - &mike age1w2szqkpqpurah7sc88xx0z3j2m068w6gryh6qh2vvpd5s9rd8uusppwsjr
-    creation_rules:
-      - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-        key_groups:
-          - pgp:
-            age:
-            - *mike
-  '';
-
   # Do this instead of setting up Chezmoi
   home = {
     file = {
+      ".var/app/org.squidowl.halloy/config/halloy/config.toml".text = ''
+        theme = "tokyo-night-storm"
+
+        [servers.liberachat]
+        nickname = "moxie-_-"
+        server = "irc.libera.chat"
+        channels = ["#nixos", "#python", "#linux", "##politics", "#networking", "##programming", "#hardware"]
+
+        [buffer.channel.topic]
+        enabled = true
+
+        [buffer.channel.nicklist]
+        enabled = false
+
+        [buffer.server_messages.join]
+        enabled = false
+
+        [buffer.server_messages.part]
+        enabled = false
+
+        [buffer.server_messages.quit]
+        enabled = false
+
+        [actions.sidebar]
+        buffer = "replace-pane"
+
+        [actions.buffer]
+        click_channel_name = "replace-pane"
+        click_username = "replace-pane"
+      '';
+
+      # Add public key and rules config
+      ".sops.yaml".text = ''
+        keys:
+          - &mike age1w2szqkpqpurah7sc88xx0z3j2m068w6gryh6qh2vvpd5s9rd8uusppwsjr
+        creation_rules:
+          - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+            key_groups:
+              - pgp:
+                age:
+                - *mike
+      '';
       ".zsh.d/func.zsh".source = ./dots/func.zsh;
       ".shell.nix".source = ./dots/shell.nix;
       ".pre-commit-config.yaml".text = ''
@@ -221,8 +220,9 @@ in {
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
+    # TODO: Make this work with Lix
     nix-direnv = {
-      enable = true;
+      enable = false;
     };
   };
 
