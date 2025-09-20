@@ -9,6 +9,7 @@
     ./users/mike.nix
     ./system/filesystems.nix
     ./system/backup.nix
+    ./system/lix.nix
     ./desktop/gnome.nix
     ./desktop/hyprland.nix
   ];
@@ -160,8 +161,6 @@
     memoryPercent = 35;
   };
 
-  # Let Nix manage Nix
-  nix.package = pkgs.nix;
   # Internal NixOS confguration
   nix = {
     optimise.automatic = true;
