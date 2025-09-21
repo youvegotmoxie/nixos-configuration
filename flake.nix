@@ -41,7 +41,7 @@
         inherit system;
         modules = [
           # Import the main module
-          ./configuration.nix
+          ./hosts/snafu-nixos/configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
@@ -54,7 +54,7 @@
               };
               # Relative to home.nix config file: /etc/nixos/users/secrets/global.yaml
             };
-            sops.defaultSopsFile = ./users/${mainUser}/secrets/global.yaml;
+            sops.defaultSopsFile = ./hosts/snafu-nixos/users/${mainUser}/secrets/global.yaml;
             sops.secrets.gh_token = {
               path = "${comin_path}";
             };
@@ -84,9 +84,9 @@
                 # Flatpak NixOS configuration
                 nix-flatpak.homeManagerModules.nix-flatpak
                 # Use Home Manager to manage Flatpaks
-                ./users/${mainUser}/software/flatpak.nix
+                ./hosts/snafu-nixos/users/${mainUser}/software/flatpak.nix
                 # Main home-manager configuration
-                ./users/${mainUser}/home.nix
+                ./hosts/snafu-nixos/users/${mainUser}/home.nix
               ];
             };
           }
