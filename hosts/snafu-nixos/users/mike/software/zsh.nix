@@ -36,22 +36,26 @@ in {
     };
     shellAliases = {
       fps = "flatpak search";
-      "lg" = "lazygit";
-      "ls" = "eza";
-      "rm" = "rm -v";
-      "mv" = "mv -v";
-      "cp" = "cp -v";
-      "ln" = "ln -v";
-      "mkdir" = "mkdir -v";
-      "history" = "history -E";
-      "sudo" = "nocorrect sudo";
-      "tldr" = "nocorrect tldr";
-      "gpm" = "git pull origin master";
-      "ll" = "eza -lahg --git-repos-no-status --git";
-      "grep" = "ugrep --color=auto";
-      "cat" = "bat --paging=never --style=plain";
-      "dive" = "docker run -it --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
-      "sed" = "gsed";
+      lg = "lazygit";
+      ls = "eza";
+      rm = "rm -v";
+      mv = "mv -v";
+      cp = "cp -v";
+      ln = "ln -v";
+      mkdir = "mkdir -v";
+      history = "history -E";
+      sudo = "nocorrect sudo";
+      tldr = "nocorrect tldr";
+      gpm = "git pull origin master";
+      ll = "eza -lahg --git-repos-no-status --git";
+      grep = "ugrep --color=auto";
+      cat = "bat --paging=never --style=plain";
+      dive = "docker run -it --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
+      sed = "gsed";
+      man = "batman";
+      tree = "eza --icons --tree --group-directories-first";
+      nomsh = "nom-shell";
+      tt = "gtrash put";
     };
     initContent = lib.mkOrder 1500 ''
       export GH_TOKEN="$(cat ${config.sops.secrets.gh_token.path})"

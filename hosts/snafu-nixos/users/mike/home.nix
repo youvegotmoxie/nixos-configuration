@@ -232,6 +232,7 @@ in {
   home.packages = with pkgs; [
     atuin
     bat
+    bat-extras.batman
     bfs
     bitwarden
     bitwarden-cli
@@ -239,13 +240,13 @@ in {
     cargo
     clang
     delta
-    discord
     eza
     fd
     gh
     ghostty
     git
     go
+    gtrash
     imagemagick
     jdk21_headless
     jq
@@ -253,13 +254,13 @@ in {
     lazygit
     networkmanagerapplet
     nh
+    nix-output-monitor
     nodejs
     python313
     ripgrep
     screen
     starship
     tldr
-    tree
     ugrep
     unzip
     viddy
