@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   # Configure Git for the user
   programs.lazygit = {
     enable = true;
@@ -17,12 +17,14 @@
     enable = true;
     userName = "MikeB";
     userEmail = "youvegotmoxie@gmail.com";
-    signing.key = "~/.ssh/id_rsa.pub";
+    signing.key = "${config.home.homeDirectory}/.ssh/git-signing_ed25519.pub";
     extraConfig = {
       core = {
         pager = "delta --pager=never --max-line-length=0";
         editor = "hx";
       };
+      gpg.format = "ssh";
+      commit.gpgsign = true;
       init = {
         defaultBranch = "master";
       };
