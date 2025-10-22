@@ -50,8 +50,8 @@ in {
       (final: prev: {
         gnome = prev.gnome.overrideScope (gfinal: gprev: {
           gvfs = gprev.gvfs.override {
-            googleSupport = true;
-            gnomeSupport = true;
+            googleSupport = false;
+            gnomeSupport = false;
           };
         });
       })
