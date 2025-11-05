@@ -15,10 +15,9 @@
   };
   programs.git = {
     enable = true;
-    userName = "MikeB";
-    userEmail = "youvegotmoxie@gmail.com";
-    signing.key = "${config.home.homeDirectory}/.ssh/git-signing_ed25519.pub";
-    extraConfig = {
+    settings = {
+      user.name = "MikeB";
+      user.email = "youvegotmoxie@gmail.com";
       core = {
         pager = "delta --pager=never --max-line-length=0";
         editor = "hx";
@@ -57,5 +56,6 @@
         };
       };
     };
+    signing.key = "${config.home.homeDirectory}/.ssh/git-signing_ed25519.pub";
   };
 }
