@@ -142,7 +142,6 @@ in {
     rocmSupport = true;
     allowUnfree = true;
     permittedInsecurePackages = [
-      "libsoup-2.74.3"
     ];
   };
 
@@ -168,7 +167,7 @@ in {
     optimise.automatic = true;
     gc = {
       automatic = true;
-      options = "--delete-older-than 60d";
+      options = "--delete-older-than 30d";
     };
     extraOptions = ''
       min-free = ${toString (100 * 1024 * 1024)}
