@@ -2,7 +2,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+in {
   # Add config file imports
   imports = [
     ./hardware-configuration.nix

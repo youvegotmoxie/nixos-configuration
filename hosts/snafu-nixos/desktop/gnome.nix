@@ -27,7 +27,7 @@ in {
       gnome-browser-connector
       gnome-tweaks
       gnome-themes-extra
-      chrome-gnome-shell
+      gnome-browser-connector
       gnome-shell-extensions
       kora-icon-theme
     ];

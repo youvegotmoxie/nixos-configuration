@@ -234,7 +234,7 @@ in {
     bat
     bat-extras.batman
     bfs
-    bitwarden
+    bitwarden-desktop
     bitwarden-cli
     brave
     cargo
@@ -270,6 +270,6 @@ in {
     # Shell scripts
     blame-line-pretty
     git-hunk
-    androidmessages
+    # androidmessages
   ];
 }
