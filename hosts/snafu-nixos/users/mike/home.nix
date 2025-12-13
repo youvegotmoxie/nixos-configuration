@@ -256,6 +256,7 @@ in {
     nh
     nix-output-monitor
     nodejs
+    pre-commit
     python313
     ripgrep
     screen

@@ -51,7 +51,6 @@ in {
       grep = "ugrep --color=auto";
       cat = "bat --paging=never --style=plain";
       dive = "docker run -it --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
-      sed = "gsed";
       man = "batman";
       tree = "eza --icons --tree --group-directories-first";
       nomsh = "nom-shell";
