@@ -212,7 +212,7 @@ in {
 
   # Set EDITOR to nvim
   programs.neovim = {
-    enable = false;
+    enable = true;
     defaultEditor = false;
   };
 

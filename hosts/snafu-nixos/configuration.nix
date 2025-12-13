@@ -150,7 +150,19 @@ in {
 
   # Configure audio, keyboard, bluetooth and controllers
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
+      };
+    };
     xone.enable = true;
     steam-hardware.enable = true;
   };
